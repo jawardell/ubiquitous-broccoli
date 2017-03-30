@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class slopeTester {
     public static void main(String[] args) {
         int n = 0, g = 0;
@@ -26,7 +26,6 @@ public class slopeTester {
             }
         }
     }
-
     public static int[][] makeArray(int n, int g) {
         int[][] array = new int[g + ((n+1)/2)][n];
         array[array.length-1][0] = 1;
@@ -51,7 +50,6 @@ public class slopeTester {
                }
             }
         }
-
         return array;
     }
 }
