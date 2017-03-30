@@ -1,6 +1,4 @@
-
 import java.util.*;
-
 public class Test {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -42,7 +40,6 @@ public class Test {
 		}
 
 	}
-
 	public static int[][] makeArray(int n, int topNum, int bottomNum) {
 		int topRow = 0;
 		int bottomRow = 0;
@@ -90,7 +87,6 @@ public class Test {
 
 		return array;
 	}
-
 	public static boolean isPrime(int n) {
 		for (int i = 2; i <= n / 2; i++) {
 			if (n % i == 0) {
@@ -99,7 +95,6 @@ public class Test {
 		}
 		return true;
 	}
-
 	public static boolean isPerfectS(int n) {
 		int temp = n;
 		int count = 1;
