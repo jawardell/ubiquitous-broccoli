@@ -1,5 +1,5 @@
 import java.util.*;
-public class Test {//hi from mac terminal
+public class Test {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int n = 20, top = 1, bottom = -2;
