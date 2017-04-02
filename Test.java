@@ -57,7 +57,6 @@ public class Test {
 		array[bottomRow][0] = bottomNum;
 
 		// initialize top and bottom values
-
 		for (int row = topRow; row > 0; row--) {
 			array[row][col1] = topNum;
 			col1 += 1;
