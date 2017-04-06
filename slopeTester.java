@@ -12,15 +12,15 @@ public class slopeTester {
             for(int col = 0; col < array[0].length; col++) {
                 if(col == array[0].length-1) {
                     if(array[row][col] == -1) {
-                        System.out.printf("%15s\n", "");
+                        System.out.printf("%13s\n", "");
                     } else {
-                        System.out.printf("%15d\n",array[row][col]);
+                        System.out.printf("%13d\n",array[row][col]);
                       }
                     } else {
                         if(array[row][col] == -1) {
-                            System.out.printf("%15s", "");
+                            System.out.printf("%13s", "");
                         } else {
-                           System.out.printf("%15d",array[row][col]);
+                           System.out.printf("%13d",array[row][col]);
                         }
                 }
             }
