@@ -12,13 +12,13 @@ public class slopeTester {
             for(int col = 0; col < array[0].length; col++) {
                 if(col == array[0].length-1) {
                     if(array[row][col] == -1) {
-                        System.out.printf("%13s\n", "");
+                        System.out.printf(\u001b[1;31m%10d\u001b[0m, "#");
                     } else {
                         System.out.printf("%13d\n",array[row][col]);
                       }
                     } else {
                         if(array[row][col] == -1) {
-                            System.out.printf("%13s", "");
+                            System.out.printf("\u001b[1;31m%10d\u001b[0m", "#");
                         } else {
                            System.out.printf("%13d",array[row][col]);
                         }
