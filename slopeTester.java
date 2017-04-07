@@ -1,15 +1,45 @@
 import java.util.*;
 public class slopeTester {
 	public static void main(String[] args) {
-		int n = 0, g = 0, a = 0;
+		int n = 0, g = 0, a = 0, m = 0;
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("enter initial gap: ");
-		g = Integer.parseInt(scanner.nextLine());
-		System.out.print("\nenter n: ");
-		n = Integer.parseInt(scanner.nextLine());
-		//int[][] array = makeArray(n, g);
-		System.out.print("enter a: ");
-		a = Integer.parseInt(scanner.nextLine());
+		//int[][] array;
+		System.out.print("0 - default corridor with custom gap");
+		System.out.print("1 - corridor with custom gap & custom start position");
+		System.out.print("2 - corridor with custom gap, start pos, and slope");
+		System.out.print("Which would you like to do?");
+		System.out.print("Enter 0, 1, or 2: ");
+		int kind = Integer.parseInt(scanner.nextLine());
+		switch (kind) {
+			case 0 :
+				System.out.print("enter n: ");
+				n = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter gap: ");
+				g = Integer.parseInt(scanner.nextLine());
+				array = makeArray(n, g);
+				break;
+			case 1 :
+				System.out.print("enter n: ");
+				n = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter gap: ");
+				g = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter start pos: ");
+				a = Integer.parseInt(scanner.nextLine());
+				array = makeArray(n, g, a);
+				break;
+			case 2 :
+				System.out.print("enter n: ");
+				n = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter gap: ");
+				g = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter start pos: ");
+				a = Integer.parseInt(scanner.nextLine());
+				System.out.print("enter start slope: ");
+				m = Integer.parseInt(scanner.nextLine());
+				array = makeArray(n, g, a);
+				break;
+
+		}
 		int[][] array = makeArray(n, g, a);
 		for(int row = 0; row < array.length; row++) {
 			for(int col = 0; col < array[0].length; col++) {
