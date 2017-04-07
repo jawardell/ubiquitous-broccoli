@@ -33,9 +33,11 @@ public class slopeTester {
 				g = Integer.parseInt(scanner.nextLine());
 				System.out.print("\nenter start pos: ");
 				a = Integer.parseInt(scanner.nextLine());
-				System.out.print("\nenter start slope: ");
-				m = Integer.parseInt(scanner.nextLine());
-				array = makeArray(n, g, a);
+				System.out.print("\nenter rise: ");
+				rise = Integer.parseInt(scanner.nextLine());
+				System.out.print("\nenter run: ");
+				run = Integer.parseInt(scanner.nextLine());
+				array = makeArray(n, g, a, rise, run);
 				break;*/
 		}
 		for(int row = 0; row < array.length; row++) {
