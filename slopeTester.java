@@ -37,7 +37,6 @@ public class slopeTester {
 				m = Integer.parseInt(scanner.nextLine());
 				array = makeArray(n, g, a);
 				break;
-
 		}
 		for(int row = 0; row < array.length; row++) {
 			for(int col = 0; col < array[0].length; col++) {
