@@ -1,7 +1,7 @@
 import java.util.*;
 public class slopeTester {
 	public static void main(String[] args) {
-		int n = 0, g = 0, a = 0, m = 0;
+		int n = 0, g = 0, a = 0, rise = 0, run = 0;
 		Scanner scanner = new Scanner(System.in);
 		int[][] array = null;
 		System.out.print("\n\n\noptions:\n0 - default corridor with custom gap\n\n");
