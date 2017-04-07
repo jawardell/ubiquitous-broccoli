@@ -6,8 +6,8 @@ public class slopeTester {
 		int[][] array = null;
 		System.out.print("\n\n\noptions:\n0 - default corridor with custom gap\n\n");
 		System.out.print("1 - corridor with custom gap & custom start position\n\n");
-		System.out.print("2 - corridor with custom gap, start pos, and slope\n\n");
-		System.out.print("Enter 0, 1, or 2: ");
+		//System.out.print("2 - corridor with custom gap, start pos, and slope\n\n");
+		System.out.print("Enter 0 or 1 : ");
 		int kind = Integer.parseInt(scanner.nextLine());
 		switch (kind) {
 			case 0:
@@ -26,7 +26,7 @@ public class slopeTester {
 				a = Integer.parseInt(scanner.nextLine());
 				array = makeArray(n, g, a);
 				break;
-			case 2:
+			/*case 2:
 				System.out.print("\n\n\nenter n: ");
 				n = Integer.parseInt(scanner.nextLine());
 				System.out.print("\nenter gap: ");
@@ -36,7 +36,7 @@ public class slopeTester {
 				System.out.print("\nenter start slope: ");
 				m = Integer.parseInt(scanner.nextLine());
 				array = makeArray(n, g, a);
-				break;
+				break;*/
 		}
 		for(int row = 0; row < array.length; row++) {
 			for(int col = 0; col < array[0].length; col++) {
