@@ -108,4 +108,12 @@ public class slopeTester {
 		}
 		return array;
 	}
+	//test for probs with # going to new line
+	//add option for output in CVS format
+	//add option for rise over run slope
+	//add option for 1/m slope
+	//might extend to include negative numbers for reflection purposes
+	//maybe
+	//big: change to ask for n later, not first..
+	//no "paths" can cross bound
 }
