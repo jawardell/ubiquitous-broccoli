@@ -1,13 +1,13 @@
 import java.util.*;
 public class slopeTester {
 	public static void main(String[] args) {
-		int n = 0, g = 0, a = 0, rise = 0, run = 0;
+		int n = 0, g = 0, a = 0, m = 0;
 		Scanner scanner = new Scanner(System.in);
 		int[][] array = null;
 		System.out.print("\n\n\noptions:\n0 - default corridor with custom gap\n\n");
 		System.out.print("1 - corridor with custom gap & custom start position\n\n");
-		//System.out.print("2 - corridor with custom gap, start pos, and slope\n\n");
-		System.out.print("Enter 0 or 1 : ");
+		System.out.print("2 - corridor with custom gap, start pos, and slope\n\n");
+		System.out.print("Enter 0  1 or 2: ");
 		int kind = Integer.parseInt(scanner.nextLine());
 		switch (kind) {
 			case 0:
@@ -26,19 +26,17 @@ public class slopeTester {
 				a = Integer.parseInt(scanner.nextLine());
 				array = makeArray(n, g, a);
 				break;
-			/*case 2:
+			case 2:
 				System.out.print("\n\n\nenter n: ");
 				n = Integer.parseInt(scanner.nextLine());
 				System.out.print("\nenter gap: ");
 				g = Integer.parseInt(scanner.nextLine());
 				System.out.print("\nenter start pos: ");
 				a = Integer.parseInt(scanner.nextLine());
-				System.out.print("\nenter rise: ");
-				rise = Integer.parseInt(scanner.nextLine());
-				System.out.print("\nenter run: ");
-				run = Integer.parseInt(scanner.nextLine());
-				array = makeArray(n, g, a, rise, run);
-				break;*/
+				System.out.print("\nenter m for 1/m slope: ");
+				m = Integer.parseInt(scanner.nextLine());
+				array = makeArray(n, g, a, m);
+				break;
 		}
 		for(int row = 0; row < array.length; row++) {
 			for(int col = 0; col < array[0].length; col++) {
@@ -92,6 +90,32 @@ public class slopeTester {
 			if(rowneg == -1) {break;}
 			array[rowneg][col] = -1;
 			if(col % 2 == 0) {rowneg -= 1;}
+		}
+		for(int col = 1; col <= array[0].length-1; col++) {
+			for(int row = array.length-1; (array[row][col] != -1); row--) {
+				if((row == 0)) { array[row][col] = 0; break;}
+				if(row == array.length-1) {
+					array[row][col] = array[row-1][col-1];
+				}
+				else if(array[row-1][col-1] == -1) {
+					array[row][col] = array[row+1][col-1];
+				} else {
+					array[row][col] = array[row-1][col-1] + array[row+1][col-1];
+				}
+			}
+		}
+		return array;
+	}
+
+	public static int[][] makeArray(int n, int g, int a, int m) {
+		int[][] array = new int[g + ((n+1)/m)][n];
+		array[array.length-a][0] = 1;
+		array[(array.length-g)-1][0] = -1;
+		int rowneg = (array.length-g)-2;
+		for(int col = 1; col <  array[0].length; col++) {
+			if(rowneg == -1) { break; }
+			array[rowneg][col] = -1;
+			if(col % m == 0) { rowneg -= 1; }
 		}
 		for(int col = 1; col <= array[0].length-1; col++) {
 			for(int row = array.length-1; (array[row][col] != -1); row--) {
