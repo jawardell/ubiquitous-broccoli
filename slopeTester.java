@@ -39,24 +39,27 @@ public class slopeTester {
 		//		array = makeArray(n, g, a, m);
 		//		break;
 		//}
-		System.out.println("enter gap: ");
-		array = makeArray(35,scanner.nextInt());
+		for(int z = 1 ; z < 10; z++) {
+		array = makeArray(50, z);
+		System.out.println("GAP: " + z);
 		for (int row = 0; row < array.length; row++) {
 			for (int col = 0; col < array[0].length; col++) {
 				if (col == array[0].length - 1) {
 					if (array[row][col] == -1) {
-						System.out.printf("\u001b[1;31m%13s\n\u001b[0m", "#");
+						System.out.printf("%13s\n", "#####");
 					} else {
 						System.out.printf("%13d\n", array[row][col]);
 					}
 				} else {
 					if (array[row][col] == -1) {
-						System.out.printf("\u001b[1;31m%13s\u001b[0m", "#");
+						System.out.printf("%13s", "#####");
 					} else {
 						System.out.printf("%13d", array[row][col]);
 					}
 				}
 			}
+		}
+		System.out.println();
 		}
 	}
 
