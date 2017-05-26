@@ -1,5 +1,5 @@
 import java.util.*;
-
+//make add columns and output to file
 public class slopeTester {
 	public static void main(String[] args) {
 		int n = 0, g = 0, a = 0, m = 0;
