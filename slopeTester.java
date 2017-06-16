@@ -253,4 +253,6 @@ public class slopeTester {
 	//maybe
 	//big: change to ask for n later, not first..
 	//no "paths" can cross bound
+	//i plan to make this more elegant and less scary
+	//logical redunancies and bugs
 }
