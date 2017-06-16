@@ -255,4 +255,10 @@ public class slopeTester {
 	//no "paths" can cross bound
 	//i plan to make this more elegant and less scary
 	//logical redunancies and bugs
+	//add columns
+	//encorporate state analysis
+	//also encorporate different formatting
+		//no zeros above SL
+		//mult. check and prime check
+	//also want to do a state comparison as g increases
 }
