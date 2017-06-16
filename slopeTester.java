@@ -175,6 +175,8 @@ public class slopeTester {
 		}
 		return array;
 	}
+	
+	
 	public static int[][] makeArray(int n, int g, int a) {
 		int[][] array = new int[g + ((n + 1) / 2)][n];
 		array[array.length - a][0] = 1;
@@ -207,6 +209,9 @@ public class slopeTester {
 		return array;
 	}
 
+	
+	
+	
 	public static int[][] makeArray(int n, int g, int a, int m) {
 		int[][] array = new int[g + ((n + 1) / 2)][n];
 		array[array.length - a][0] = 1;
@@ -238,6 +243,8 @@ public class slopeTester {
 		}
 		return array;
 	}
+	
+	
 	//test for probs with # going to new line
 	//add option for output in CVS format
 	//add option for rise over run slope
