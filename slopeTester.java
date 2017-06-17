@@ -13,7 +13,7 @@ public class slopeTester {
 				case 1 :
 					for(int z = 1; z < 12; z++) {
 						System.out.print("\n\nG = " + z);
-						print(makeArray(30,z));
+						print(makeArray(20,z));
 
 					}
 					break;
@@ -68,19 +68,19 @@ public class slopeTester {
 
 
 				if(needsColoring && needsNewLine) {
-					System.out.printf("\u001b[1;31m%13d\u001b[0m\n", array[i][j]);
+					System.out.printf("\u001b[1;36m%13d\u001b[0m\n", array[i][j]);
 					continue;
 				}
 				if(needsColoring && !needsNewLine) {
-					System.out.printf("\u001b[1;31m%13d\u001b[0m", array[i][j]);
+					System.out.printf("\u001b[1;36m%13d\u001b[0m", array[i][j]);
 					continue;
 				}
 
 				if(needsNewLine && isSentinel) {
-					System.out.printf("\u001b[1;34m%13s\u001b[0m\n", "$$$$");
+					System.out.printf("\u001b[1;40m%13s\u001b[0m\n", "$$$$");
 				}
 				if(!needsNewLine && isSentinel) {
-					System.out.printf("\u001b[1;34m%13s\u001b[0m", "$$$$");
+					System.out.printf("\u001b[1;40m%13s\u001b[0m", "$$$$");
 				}
 
 
