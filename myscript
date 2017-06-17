@@ -2,5 +2,5 @@
 
 javac slopeTester.java
 echo 1 | java slopeTester
-
+sudo apt-get moo
 
