@@ -20,7 +20,7 @@ public class slopeTester {
 				case 0:
 					for(int z = 1; z < 12; z++) {
 						System.out.print("\n\nG = " + z);
-						print2(makeArray(30,z));
+						print2(makeArray(20,z));
 
 					}
 					break;
@@ -244,20 +244,18 @@ public class slopeTester {
 	}
 	
 	
-	//test for probs with # going to new line
+	
 	//add option for output in CVS format
-	//add option for rise over run slope
-	//add option for 1/m slope
-	//might extend to include negative numbers for reflection purposes
-	//maybe
-	//big: change to ask for n later, not first..
-	//no "paths" can cross bound
+	//SL ambiguity: can paths sit on the line?
+		//this would create brand new output
 	//i plan to make this more elegant and less scary
 	//logical redunancies and bugs
-	//add columns
+	//sum columns
 	//encorporate state analysis
 	//also encorporate different formatting
 		//no zeros above SL
 		//mult. check and prime check
 	//also want to do a state comparison as g increases
+	//test formating for 1/m slope, with any m (scary, but awesome)
+	//make scripts for every report? avoid obfuscation, encourage simplicity
 }
