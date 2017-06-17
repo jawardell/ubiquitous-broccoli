@@ -1,0 +1,8 @@
+#/!/bin/bash
+#this is a comment
+
+cd ubiquitous-broccoli
+javac slopeTester.java
+echo 1 | java slopeTester
+
+
