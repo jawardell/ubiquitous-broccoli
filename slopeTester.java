@@ -68,11 +68,11 @@ public class slopeTester {
 
 
 				if(needsColoring && needsNewLine) {
-					System.out.printf("\u001b[1;32m%13d\u001b[0m\n", array[i][j]);
+					System.out.printf("\u001b[1;31m%13d\u001b[0m\n", array[i][j]);
 					continue;
 				}
 				if(needsColoring && !needsNewLine) {
-					System.out.printf("\u001b[1;32m%13d\u001b[0m", array[i][j]);
+					System.out.printf("\u001b[1;31m%13d\u001b[0m", array[i][j]);
 					continue;
 				}
 
@@ -105,8 +105,7 @@ public class slopeTester {
 
 				boolean needsNewLine = j == array[0].length - 1;
 				boolean isSentinel = array[i][j] == -1;
-				boolean notZero = array[i][j] != 0;
-
+				
 				if(needsNewLine && isSentinel) {
 					System.out.printf("%13s\n", "$$$$");
 				}
