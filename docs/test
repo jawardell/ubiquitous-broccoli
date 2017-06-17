@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{cite}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\newcommand*{\set}[1]{\mathbb{#1}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\title{Toward an Understanding of Skewed Top Corridors}
+\author{Joanne Wardell}
+\date{2017}
+
+
+\begin{document}
+\maketitle
+\subsection*{Introduction}
+\tab 
+Lattice paths have been studied extensively over the course of several centuries. For the purpose of this study, a lattice consists of points $\set{Z}^{2}$ with certain restrictions and with only two allowable moves, up-right and
+down-right.
+Movements in various directions on the lattice are called paths.
+\\*
+\tab A corridor is a rectangular region within a lattice The lattice path enumeration model that we propose consists of a starting point, an upper and lower bound, and all possible paths from said starting point to some end point.
+The area in which the paths are propagated is referred to as a corridor. The number of paths within the corridor depend on the initial values of the starting point, the nature of the upper and lower bounds, and the value placed at the
+starting point. In our model, the lower bound is a line with zero slope and the upper bound is a line with a variable slope. These conditions seem to present a problem when attempting to systematically generate the values contained 
+in the corridors. Due to the nature of the upper bound, which is a line with slope not parallel to that of the lower bound, the paths bounce off of the upper diagonal line, 
+rippling into and distorting the data below it. One would think that calculating the error caused by each interruption would be somewhat intuituve, but the impacts of each diagonal-boundary disturbance grow larger and more disturbing as
+time in the corridor progresses. Although the data changes because of the upper bound's slope, intruiguing patterns and characteristics have been observed in the configurations of this environment. 
+We call the model
+which has been breifly introduced a skewed top corridor. \\*
+\tab The corridor exists on a two dimensional plane which involves the elapse of time on the horizonal axis and the amount of paths on the vertical axis. A gap extends vertically from the starting point and contains the 
+initial value which is placed at the starting point. The gap contains elements, other than the value initialized at the start point, of zero value. A diagonal line, which the paths can touch but 
+not surpass, begins just above the gap and extends to a finite point on the grid. Paths can move in an upward or downward direction in the corridor.
+
+
+
+
+
+
+%at each point. When these lattice paths are confined to an area in which they must exist, it is called a corridor and the place in
+%the corridor where non zero values appear is called the fundamental area *hmm*. The corridors which restrict lattice paths consist
+%of two *?* boundaries which are lines. The boundary lines can have the same slope, or the slope of either line can be different. The 
+%slope properties of the two boundary lines depends on the context of the situation being modeled and other constrains and conditions
+%that exist in the system. Two common examples of lattice path enumeration within some bounded corridor consist of boundaries that 
+%have the same slope and are parallel, or two lines in which the bottom has some different slope while the top has a slope of one. The 
+%situation which is modeled in this paper consists of a corridor with a bottom boundary line with slope of one while the top line
+%has some slope which is not equal to one. This seems to cause problems with being able to calculate numbers in the corridor as opposed to
+%the other models. In the two previosly mentioned situations, the corridor with a bottom boundary with different slope, is more predictable
+%because there are tricks one can play to manipulate the values which will appear later. The model which studies the corridor contained
+%by two parallel lines with the same slope is also maliable due to the fact that the two lines have the same slope and the values
+%inside the fundmental region are not disturbed by any line. When one models a system in which the paths are contained by an upper 
+%boundary line with a slope not parallel to the lower line, however, additional factors must be taken into account in order to analyse
+%the values within the region.\\*
+%\tab In this system, paths are represented on a grid which is in a two-dimensional space. Paths can exist in 
+%more than two dimensional spaces, but for the purpose of this study, they are in a two dimensional Euclidian space. *for now?*
+%In this space, the vertical axis models the 
+%amount of steps taken at some point in the space. The horizontal axis in this grid plane represents the amount of time that has elapsed in taking 
+%one step in the space *what units of time, and does the length of each 'step' matter? do we care about length of steps or are we just
+%counting?*. *Should I start explaining things in detail -- the array of 0's, the gap, the slope. the position -- or wait until
+%sybmols and Def's?* if so: *talk about how the paths can move, up/down, can paths sit on the line or not and why*
+%\\* *talk about all zeros and natural numbers and WHY*
+%\\* *talk about why someone can't take zero steps to start*
+%\\* *talk about the gap and why we would do that*
+%\\* *talk about the slope and why we would do that*
+%\\* *talk about the position and why we would chnage that*
+%\\* *would we start with a different value other than one at the start position?, address that as well*
+%\\* *answer those questions, but leave room for some insight/ thoughful comments at conclusion*
+
+\subsection*{Symbols and Definitions}
+
+The paths in this model exist in a space composed of natural numbers including zero. The natural numbers not including zero may 
+also be referenced.
+Let $\set{N}$ represent the set natural numbers not including zero and $\set{N}_0$ represent the set natural numbers including zero.\\*\\*
+Let $\set{Z}$ represent the set of integers which may also be used in describing the system of paths.\\*\\*
+The upper boundary restricting the corridor from above has a slope. The slope has a rise of $1$ over some variable
+in the set of natural numbers not including zero, $r \in \set{N}$.
+Let $m$ represent slope, $m=\frac{1}{r}$ which, for now, is a fixed number, $m=\frac{1}{2}$.\\*\\*
+A gap of alloted space is initialized upon creation of the corridor area. This is a column with a height of some value in 
+the set of natural numbers. This gap should be greater than or equal to one.
+Let $g \in \set{N}$. This represents a gap above the initial point and contains $g$ elements.\\*\\*
+Let $a \in \set{N}$ be the location on the horizontal axis where the paths begin. The starting point will always be a position $a$ on the horizontal and at position $0$ on the vertical. This value needs to reside within the gap, so $a \geq g$.\\*\\*
+The paths that are propagated from the start point to some other point begin with some initial number of paths taken. Let $v \in \set{N}$ dictate how many paths exist at the start point.\\*\\*
+The model considers the elapse of time at each point in the lattice corridor. For some moment in time, a specific number of paths exits at some point in the grid space. Let $n \in \set{N}_0$ model the time period in which the paths can be modeled where the corridor
+ only extends for $n$ inclusive columns.\\*\\*
+The corridor containing all possible path combinations is a subset on an infinite plane of integers. 
+Consider a  function, $V \mathpunct{:} \set{N}_0 \times \set{N}_0 \rightarrow \set{N}_0$ called a corridor state function. Then $V(x, n)$ represents the number of paths at any point $(x, n)$ in the corridor, where $x \in \set{N}_0$.
+While the corridor consists of only natural numbers including zero, the two dimensional grid space contains all $\set{Z}$ values. In other words, the range of $V$ is $\set{Z}$\\*\\*
+The skewed top corridors may be referenced in relation to their $g$ value. Let $C_g$ be the corridor with $g = i$, $m = \frac{1}{2}$, $a = 1$, and $v = 1$.\\*\\*
+The diagonals, a concepts discussed later, may also be referenced in the corridor. Let $C_id_j$ where $j \in \set{N}_0$. Then $C_id_j$ is the diagonal $j$ in corridor $i$.
+\subsection*{Propagating Values}
+\tab Choose some value for $a$ and some value for $v$. For now, $v = 1$ and $a = 1$. Insert $v$ into position $(0,a)$ in the
+array.
+Note that the starting point of all paths is $(0,a)$ and the value at said point is $v$. The
+position on the vertical axis of the grid in this case is $a$.\\*
+\tab Choose some value for $g$, which represents the size of a gap in column $1$ of the array. This gap consists of $g$ elements
+and begins at point $(0,1)$ in the array. The gap extends upward to $(g+1, 0)$ and a sentinel boundary is placed at $(g+1, 0)$.
+Continue establishing sentinel areas from $(g+1, 0)$, progressing through each column. Since $m=\frac{1}{2}$, move up one row in the array when an even column
+is encountered. This is conintued until one reaches the $n^{th}$ column. A sentinel line is
+ established with a slope of $\frac{1}{2}$. For now, assume that every value in the array on or above the sentinel line 
+is equal to zero and assume that every value below row one in the array is equal to zero. The following recursive formula can be used to
+calulate each value in the array, where $V(0, k) = $ initial state:
+\\*
+\[V(x,k) = V(x-1, k-1) + V(x+1,k-1) \] where , $x \in \set{N}$ and $k \in \set{N}$.
+
+Notice that this forms an area of zero and nonzero values which reside above row one and below the sentinel line.
+The area in which numbers are propagated, having chosen some value for $n$, consists of $n$ columns and $g+ \frac{n+1}{2}$ rows.
+The values
+that exist in this area are all natural numbers including zero. With this configuration complete,
+\begin{itemize}
+ \item with $a = 1$ and $v = 1$,
+ \item having chosen some $n$,
+ \item having chosen some $g$,
+ \item and with $m=\frac{1}{2}$,
+\end{itemize}
+various observations can be made.
+
+\subsection*{Observations}
+\tab The corridor will contain values beginning at $(0, a = 1)$, with rows starting from $1$ extending to $g+ \frac{n+1}{2}$ and columns starting from $0$ extending to $n$.
+\\*\\*
+\tab From point $(0, a)$, a line of $1$s with slope one is generated until the sentenel line is hit at $(2g, 2g+1)$.
+Beyond this point, diagonals containing four of the same elements repeat until the end of the corridor is reached. 
+Upon reaching the sentinel line, a new diagonal begins just below the diagonal line of ones. The point at which the first diagonal of four elements begins is $(2g+1, 2g)$. % when $g$ is even and 
+The first repeating diagonals will contain 4 elements and if $g$ is odd, these values will be $2g + 1$. 
+If $g$ is even, numbers in the first four-diagonal are $2g - 1$.\\*\\*
+
+If $n$ $\textgreater$ $2g$, the one diagonal will never hit the sentinel line before row $n$ is reached.\\*\\*
+
+
+There are diagonals consisting of only zeros between each diagonal of nonzeros, where a diagonal (for these purposes) begins 
+at some point, ($b \in V$, $c \in V$), consists of points $(b+1, c+1)$ ... , and extends to 
+some distant point below or on the sentinel line. From any point on
+the grid, moving in a horizontal line to the $n^{th}$ column, the values on the grid will alternate between zeros and nonzeros.\\*\\*
+
+The diagonal beginning at point $(2, 0)$ and ending at $(2g, 2g-1)$ consists of counting numbers from $1$ to $2g$. This diagonal gets
+ disturbed by the senintel line and gets added up with the final $1$ from the first diagonal line of ones. The resulting value
+ is the first value of the $4$ element repeating diagonals.\\*\\*
+
+The diagonal beginning at point $(0,4)$ and ending at $(2g-1, 2g-5)$ contains numbers that are on the outer edge of a triangluar
+arrangement of $\set{Z}$.\\*\\*
+
+In a horizontal traversal with slope $0$ from point $(1, 0)$ to point $(1, 2g-1)$, one can observe the Catalan numbers $C_0$ to $C_g$,
+ however, this pattern quickly gets destroyed at row $2g-1$ when the first diagonal of ones hits the sentinel line. This causes
+ what should be $g+1^{th}$ Catalan number to be off by negetive one or positive one, thus this pattern disappears.\\*\\*
+ 
+ The various values that exist in the $4$ element repeating diagonals do not seem to have any known relationship.\\*\\*
+ %need to add up the cols to see if there is a relationship there
+ 
+ 
+% With the slope preset to $m = \frac{1}{2}$, the diagonals seem to have a period of $\frac{2}{m}$, two times the run. Let's begin
+ %to think about the progression within the period of each repeating diagonal. Recall that the values contained in the diagonal 
+ %below the line of ones count up to some number, $2g + 1$, and begin repeating at that number. This is because the line of ones 
+ %'bounces off' the sentinel line for the first time at .
+ %The position in which the presumed order becomes disturbed seems to always be at $g*row_number from one to number of rows$ *make sum*. 
+% From this 
+ %So, it seems that the period of diagonal consists of four elements, two times
+ %the run, and exists from columns $[2g + 1, 4g - 1]$ *not sure how to express*.
+ %The period beings when the fourth element in the repeating diagonal expires passing on its value onto the next diagonal. 
+% Is there some way to calculate this next value in the diagonal which will repeat four times and pass on its value to the next?
+ %It seems that the diagonal is composed of the error amount in each column and the diagonal value. Before the first diagonal 
+ %of four begins, the $\set{N} \times \set{N}$ corridor. Compare these values with the numbers in the period of the disturbed diagonals
+ %and one can see that the errors begin at one, but grow quickly. These errors are allowed four changes due to the nature 
+ %of the slope, $m = \frac{1}{2}$ which implies that the period is four. The progression of errors seems to begin at one, then $4$
+ %is added every time until the period ends with the diagonal hitting the sentinel line. When this happens, the value of the 
+ %diagonal is incorporated into the error calculation, resulting in the next repeating diagonal. For example, \\*
+ 
+ 
+ \subsection*{Conjecture}
+ Generating corridors starting at $C_1$ to some finite number, note the relationships between the $C_id_j^{th}$ diagonals across configurations. It appears that $d_j^{th}$ diagonals among corridors 
+ make arithmetic sequences to the $j^{th}$ degree. \\*\\*
+ The formula for the $d_0$ diagonal with $x_0 = 1$ is the following: \[f(x) = 1\]\\*
+ The formula for the $d_1$ diagonal with $x_0 = 1$ is the following: \[f(x) = 2(x - 1) + 1\]\\*
+The formula for the $d_2$ diagonal with $x_0 = 1$ is the following: \[f(x) = 2x^2+9x+3\]\\*
+The formula for the $d_3$ diagonal with $x_0 = 1$ is the following:  \[f(x) = \frac{4}{3}x^3+16x^2+\frac{149}{3}x+13\]\\*
+The formula for the $d_4$ diagonal with $x_0 = 1$ is the following:  \[f(x) = \frac{2}{3}x^4+\frac{46}{3}x^3+\frac{707}{6}x^2+\frac{1867}{6}x+68\]\\*
+
+
+As the values for $g$ increment for a new configuration of $C_g$, it seems that the 
+arithmetic sequences continue to follow the pattern of being sequences of the $j^{th}$ degree.\\*\\*
+These values are considered by first indexing "default" corridors $C_1$ to $C_g$, where $i$ is the corridor with $g = i$.
+Then index the diagonals in the corridors from $0$ to $j$, where $j$ is the $j^{th}$ diagonal in the corridor. With this indexing complete, 
+notice that we are comparing diagonals of the same index among subsequent corridors. These lists of diagonal numbers among corridors as $g$ increases 
+is what seems to produce the arithmetic sequences. This prensents the question of how to prove that this really occurs, rather, how to navigate among 
+diagonals within a single corridor. Although this pattern of arithmetic sequences to the $j^{th}$ degree has occured among diagonals of the same index
+among subsequent corridors, how can one be certain that this most definately occurs as $g$ increases? We begin answering this question by observing the 
+relationship among diagonals in one corridor; moreover, how can one traverse diagonals within one corridor? What is the pattern to calculate the next diagonal 
+value in the same corridor and how can we be certain that this pattern holds? These are the questions that will lead to proving that the corridor diagonals are
+certainly arithmeitc sequences of the $j^{th}$ degree.
+
+
+
+ %Take a look at each new configuration from $g$ starting at one to any finite, positive integer. Begin numbering the diagonals of a corridor, starting at zero, for each configuration of $g$. The number of repeating diagonals present depends on 
+ %the value chosen for $n$. If one compares the diagonals between subsequent $g corridors$ with $g$ starting at $1$ to some other natural number, geometric series of degree $diagonal number$ seem to form. 
+ 
+
+% Even with the position of the starting value being fixed, the results are different with each unique value of $g$. One can 
+ %observe the interesting patterns that occur with each new configuration. What types of patterns, if any, exist when the 
+% starting position is a point other than $(0,1)$? How can the ripple effects from differing values of $a$ be observed an analyzed?
+ 
+ 
+ %\subsection{chaning start position}
+ %\subsection{chagning slope}
+ %\subsection{with both changed}
+ %\subsection{changing start value}
+ %\subsection{all of the ripples happening section?}
+ %\subsection{conclusion and insightful remarks}
+ \subsection*{Bibliography}
+ %d;flsd;flk ~\cite{BanderierFlajolet}
+ Shaun Ault and Charles Kicey Counting Lattice Paths Using Fourier Methods\\*
+ Kenneth H. Rosen Discrete Mathematics and Its Applications\\*
+ Richard A. Brualdi Introductory Combinatorics\\*
+ C. Krattenthaller The Major Counting of Nonintersecting Lattice Paths and Generating Functions for Tableaux\\*
+ Ting Kuo From Enumerating to Generating: A Linear Time Algorithm for Generating 2D Lattice Paths with a Given Number of Turns
+ %\bibliography{test.bbl}{}
+ %\bibliographystyle{plain}
+ 
+ %*is there some special math format for citations? need to look that up maybe* \\*
+ %used Dr. A and Dr. K paper \\*
+ %used OIES get specific stuff used\\*
+ %used library book jot down author name and info and other srcs \\*
+
+ 
+%w00t
+\end{document}
+
