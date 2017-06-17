@@ -29,7 +29,7 @@ public class slopeTester {
 			}
 
 		} catch (Exception e) {
-			System.out.print("\n\n\twrong input. try again.");
+			System.out.print("\n\n\twrong input. try again.\n\n");
 		}
 		//print corridors C0 to C11
 
