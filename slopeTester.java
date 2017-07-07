@@ -77,10 +77,10 @@ public class slopeTester {
 				}
 
 				if(needsNewLine && isSentinel) {
-					System.out.printf("\u001b[1;47m%13s\u001b[0m\n", "$$$$");
+					System.out.printf("\u001b[1;47m%13s\u001b[0m\n", "0");
 				}
 				if(!needsNewLine && isSentinel) {
-					System.out.printf("\u001b[1;47m%13s\u001b[0m", "$$$$");
+					System.out.printf("\u001b[1;47m%13s\u001b[0m", "0");
 				}
 
 
