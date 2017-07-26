@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\usepackage{fullpage}
+\usepackage{pythontex}
+\restartpythontexsession{\thesection}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{graphicx}
+\newcommand{\pytex}{Python\TeX}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\title{gridtest}
+\author{joanne}
+\begin{document}
+\maketitle
+this is a test\\*
+\begin{pylabcode}
+from math import *
+n=20
+m=9
+figure(figsize=(n*0.25, m*0.2))
+gca().axison = False
+x=0
+y=1
+fill((0,1,1,0),(0,0,1,1),"1",linewidth=0)
+
+for k in range(0,20):
+	fill((x,x+1,x+1,x),(y,y,y+1,y+1),'k',linewidth=0)
+	if x%3 == 0:
+		y = y+1
+	x=x+1
+for i in range(0, n+1): 
+	ii = (i,i)
+	jj = (0,m)
+	plot(ii,jj,'0.4', linewidth=0.2)
+for j in range(0,m+1):
+	ii = (0,n)
+	jj = (j,j)
+	plot(ii,jj,'0.4', linewidth=0.2)
+savefig('myplot.pdf', bbox_inches='tight')
+\end{pylabcode}
+\includegraphics{myplot.pdf}\\*\\*
+This is a \pylab{'${0} \\times {1} = {2}$'.format(n,m,n*m)}
+square grid, with a red block at $(\pylab{x}, \pylab{y})$.\\*
+\begin{pylabcode}
+a=17
+b=12
+figure(figsize=(a*0.2,b*0.2))
+gca().axison = False
+c=0
+d=3
+for k in range(0,17):
+	fill((c,c+1,c+1,c),(d,d,d+1,d+1),'k',linewidth=0)
+	if c%2 == 0:
+		d = d+1
+	c = c+1
+for i in range(0,a+1):
+	ii = (i,i)
+	jj = (0,b)
+	plot(ii,jj,'0.4',linewidth=0.2)
+for j in range(0,b+1):
+	ii= (0,a)
+	jj = (j,j)
+	plot(ii,jj,'0.4', linewidth=0.2)
+savefig('myplot2.pdf',bbox_inches='tight')
+\end{pylabcode}
+\includegraphics{myplot2.pdf}
+\end{document}
