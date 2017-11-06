@@ -116,8 +116,8 @@ public class Sequences {
 
 	public static double seq8(double x, double g) {
 		return 	(((2*g-1)/2)*Math.pow(x,2))
-				+ (((4*Math.pow(g,2)-4*g-1)/2)*x)
-				+ ((4*Math.pow(g,3)-6*Math.pow(g,2) - 4*g)/3);
+			+ (((4*Math.pow(g,2)-4*g-1)/2)*x)
+			+ ((4*Math.pow(g,3)-6*Math.pow(g,2) - 4*g)/3);
 	}
 
 

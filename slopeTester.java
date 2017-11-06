@@ -59,8 +59,8 @@ public class slopeTester {
 				boolean isQualified = LLorUR || both;
 				boolean isFirstEntry = (i == array.length-1)&&(j == 0);
 				boolean isCornerEntry =  (((j == array[0].length-1) &&
-						(j != 0)) && (i != array.length-1)) ? (j == array[0].length-1 && notZero)
-						&& array[i+1][j-1] == array[i][j] : false;
+							(j != 0)) && (i != array.length-1)) ? (j == array[0].length-1 && notZero)
+					&& array[i+1][j-1] == array[i][j] : false;
 				boolean specialCase = isCornerEntry || isFirstEntry;
 				boolean isDiagonal =  ((isSafe&&notZero) && (isQualified)) || (specialCase);
 				boolean needsColoring =  ((!isSentinel && isSafe) && isDiagonal)||(isDiagonal && specialCase);
@@ -105,7 +105,7 @@ public class slopeTester {
 
 				boolean needsNewLine = j == array[0].length - 1;
 				boolean isSentinel = array[i][j] == -1;
-				
+
 				if(needsNewLine && isSentinel) {
 					System.out.printf("%13s\n", "$$$$");
 				}
@@ -174,8 +174,8 @@ public class slopeTester {
 		}
 		return array;
 	}
-	
-	
+
+
 	public static int[][] makeArray(int n, int g, int a) {
 		int[][] array = new int[g + ((n + 1) / 2)][n];
 		array[array.length - a][0] = 1;
@@ -208,9 +208,9 @@ public class slopeTester {
 		return array;
 	}
 
-	
-	
-	
+
+
+
 	public static int[][] makeArray(int n, int g, int a, int m) {
 		int[][] array = new int[g + ((n + 1) / 2)][n];
 		array[array.length - a][0] = 1;
@@ -242,19 +242,19 @@ public class slopeTester {
 		}
 		return array;
 	}
-	
-	
-	
+
+
+
 	//add option for output in CVS format
 	//SL ambiguity: can paths sit on the line?
-		//this would create brand new output
+	//this would create brand new output
 	//i plan to make this more elegant and less scary
 	//logical redunancies and bugs
 	//sum columns
 	//encorporate state analysis
 	//also encorporate different formatting
-		//no zeros above SL
-		//mult. check and prime check
+	//no zeros above SL
+	//mult. check and prime check
 	//also want to do a state comparison as g increases
 	//test formating for 1/m slope, with any m (scary, but awesome)
 	//make scripts for every report? avoid obfuscation, encourage simplicity
