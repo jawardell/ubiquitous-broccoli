@@ -217,6 +217,49 @@ certainly arithmetic sequences of the $j^{th}$ degree.
 
 
 
+
+
+\subsection{Additional Ways to Interpret the Corridors}
+What if we reflected the corridor and followed the same summing conventions for computing the numbers in the corridor? 
+Let's talk about the reflected corridor. Begin by choosing some gap size, g. The gap can be thought of as a wiggle-room square that resides just above the first value that we place in the
+corridor at (0, 1). The sentinel line is then established just above the starting value, which in this case is one, at (0, g). Let's refer to the already established sentinel line as the upper sentinel line. 
+Now, in position (0, -1), place a negated value of the starting value that we have just placed, let's place a negative one at position (0, -1). We will now establish a sentinel line which has the nature 
+of a negative slope, a slope opposite to that of the upper sentinel line. Let's call this line which extends at a slope of -1/2 from the starting negated position the lower sentinel line. Once both sentinel lines 
+have been established and both values placed in the correct positions on the grid, the positive one at position (0, 1) and the negative one at position (0, -1), allow the numbers to accumulate within the corridor. 
+Taking a closer look at these values, we are still seeing our sequences, but now they are expanded into their full degredation, if you will. The sequences begin outside of the bounds of our corridor as arthimetic sequences
+of degree 0. As these diagonals are followed in an up-rightward motion, each sequence decreases in degree by one. Further more, if one travels up a diagonal to the previous, they will land on a section of a sequence which 
+is of degree one less than its self. This is not a suprise due to the nature of how this corridor is set up and the fact that this is occuring has helped us in working toward proving that the sequences that we've noticed 
+in our configurations are not only related, but are indeed pattern-forming arithmetic sequences.
+
+Take a look at Figure1 to see our original program which generates the skewed-top corridors. 
+
+Figure2 demonstrates how the size of the gap can greatly affect the outcome of the numbers and offset the sequences which appear in the corridors. 
+
+In the figure below, Figure3, we demonstrate the state of the base corridor at different values of n as n increases. 
+
+Notice in Figure4 how the numbers within the corridor begin to change as the starting values, sentinel slope, and starting positions vary. 
+
+Figure5 displays our latest results within the corridors by creating a mirrored model. Notice how the sequences are extended and are allowed to progress longer within the corridors.
+
+
+\textbf{sub-conjecture} some Diagonal set of sequences, D, of degree Z will contribute to the degree of some diagonal D+1 which will have degree Z+1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  %Take a look at each new configuration from $g$ starting at one to any finite, positive integer. Begin numbering the diagonals of a corridor, starting at zero, for each configuration of $g$. The number of repeating diagonals present depends on 
  %the value chosen for $n$. If one compares the diagonals between subsequent $g corridors$ with $g$ starting at $1$ to some other natural number, geometric series of degree $diagonal number$ seem to form. 
  
