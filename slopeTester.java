@@ -27,12 +27,16 @@ public class slopeTester {
 				case 2:
 					System.out.print("\nhello! enter custom input now:\n");
 					System.out.print("\ta = \t");
-					System.out.print("\tv = \t");
+					int a = scanner.nextInt();
+					System.out.print("\tg = \t");
+					int g = scanner.nextInt();
 					System.out.print("\tr = \t");
+					int r = scanner.nextInt();
 					System.out.print("\tn = \t");
+					int n = scanner.nextInt();
 					System.out.print("\nthank you!\n");
 					Thread.currentThread().sleep(5000);
-					System.out.print("\ndoing it now\n");
+					print2(makeArray(n, g, a));
 				default:
 					throw new Exception();
 			}
