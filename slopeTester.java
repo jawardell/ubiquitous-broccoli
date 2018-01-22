@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by jawardell on 6/16/17.
@@ -24,6 +24,15 @@ public class slopeTester {
 
 					}
 					break;
+				case 2:
+					System.out.print("\nhello! enter custom input now:\n");
+					System.out.print("\ta = \t");
+					System.out.print("\tv = \t");
+					System.out.print("\tr = \t");
+					System.out.print("\tn = \t");
+					System.out.print("\nthank you!\n");
+					Thread.currentThread().sleep(5000);
+					System.out.print("\ndoing it now\n");
 				default:
 					throw new Exception();
 			}

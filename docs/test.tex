@@ -13,7 +13,10 @@
 \addtolength{\textheight}{1.75in}
 \newcommand*{\set}[1]{\mathbb{#1}}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
-
+\usepackage{graphicx}
+\graphicspath{{/Users/joannewardell/ubiquitous-broccoli/docs/imgs/}}
+\usepackage{epstopdf}
+\epstopdfsetup{outdir=./}
 \title{Toward an Understanding of Skewed Top Corridors}
 \author{Joanne Wardell}
 \date{2017}
@@ -244,12 +247,22 @@ Figure5 displays our latest results within the corridors by creating a mirrored 
 
 \textbf{sub-conjecture} some Diagonal set of sequences, D, of degree Z will contribute to the degree of some diagonal D+1 which will have degree Z+1.
 
+\begin{table}
+\caption{state information}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ c00 & c01 &  & c03 & c04 \\ 
+ c10 & c11 & c12 & c13 & c14\\ 
+ c20 & c21 & c22 & c23 & c24 \\ 
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 
 
-
-
-
+\includegraphics[scale=0.5]{photo.png}
 
 
 
