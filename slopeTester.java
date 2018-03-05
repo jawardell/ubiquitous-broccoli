@@ -5,19 +5,19 @@ import java.util.*;
  */
 public class slopeTester {
 	public static void main(String[] args) {
-		System.out.print("[1] -- Terminal\n[0] -- Other\n");
+		System.out.print("[0] -- Terminal\n[1] -- Other CL\n[2] -- Custom Input\n");
 		Scanner scanner = new Scanner(System.in);
 		try {
 			int i = scanner.nextInt();
 			switch(i) {
-				case 1 :
+				case 0 :
 					for(int z = 1; z < 12; z++) {
 						System.out.print("\n\nG = " + z);
 						print(makeArray(20,z));
 
 					}
 					break;
-				case 0:
+				case 1:
 					for(int z = 1; z < 12; z++) {
 						System.out.print("\n\nG = " + z);
 						print2(makeArray(20,z));
@@ -26,17 +26,25 @@ public class slopeTester {
 					break;
 				case 2:
 					System.out.print("\nhello! enter custom input now:\n");
-					System.out.print("\ta = \t");
-					int a = scanner.nextInt();
-					System.out.print("\tg = \t");
-					int g = scanner.nextInt();
-					System.out.print("\tr = \t");
-					int r = scanner.nextInt();
 					System.out.print("\tn = \t");
 					int n = scanner.nextInt();
+					System.out.print("\tg = \t");
+					int g = scanner.nextInt();
+					System.out.print("\ta = \t");
+					int a = scanner.nextInt();
+					System.out.print("\tm = \t");
+					int m = scanner.nextInt();
+					
+					
+					
+					
+					
+					
 					System.out.print("\nthank you!\n");
 					Thread.currentThread().sleep(5000);
-					print2(makeArray(n, g, a));
+					print(makeArray(n, g, a, m));
+					break;
+					
 				default:
 					throw new Exception();
 			}
@@ -44,7 +52,7 @@ public class slopeTester {
 		} catch (Exception e) {
 			System.out.print("\n\n\twrong input. try again.\n\n");
 		}
-		//print corridors C0 to C11
+		
 
 	}
 
