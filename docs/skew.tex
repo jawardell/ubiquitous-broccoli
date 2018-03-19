@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{pst-plot}
+
+\begin{document}
+
+\psset{
+  xunit = 0.05,
+  yunit = 0.003,
+  algebraic
+}
+\begin{pspicture}(-17,-140)(213,2540)
+  % Axes
+  \psaxes[
+    dx = 20,
+    dy = 250,
+    labels = none,
+    ticklinestyle = dotted,
+    tickwidth = 0.5pt,
+    xticksize = 0 2250,
+    yticksize = 0 200
+  ]{->}(0,0)(-4,-60)(210,2400)[$x$,0][$y$,90]
+  \psaxes[
+    dx = 20,
+    Dx = 20,
+    dy = 250,
+    Dy = 250
+  ](0,0)(-4,-60)(210,2400)
+  % Functions.
+  \psplot[linecolor = red]{0}{200}{500}
+  \rput(190,700){$y$}
+  \psplot[linecolor = blue]{0}{200}{100}
+  \rput(190,2030){$z$}
+\end{pspicture}
+
+\end{document}
