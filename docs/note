@@ -1,2 +1,13 @@
 we ran into a conflict and became corrupted. 
 let's start over and make the paper better shall we? 
+
+
+update, march 19th, 
+
+i'm going to make a graphic for the poster using pstricks, 
+i've uploaded some code to try and start doing that.. 
+
+tlmgr install pstricks
+latex skew.tex
+pfdlatex skew.tex
+open skew.pdf
