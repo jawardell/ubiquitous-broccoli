@@ -1,6 +1,5 @@
 var('g, s, D')
 
-
 def start_diag(g, s, D):
     y0 = 1 - 2*D
     L0 = 2*g + D
@@ -29,10 +28,7 @@ def end_diag(g, s, D):
         return
     return (x, y)
 
-
-
 g = 2; s = 1
 [ [start_diag(g, s, D), end_diag(g, s, D)] for D in range(5)]
-
 
 end_diag(1, 0, 0)
