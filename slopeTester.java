@@ -42,8 +42,12 @@ public class slopeTester {
 					
 					System.out.print("\nthank you!\n");
 					Thread.currentThread().sleep(5000);
-					print(makeArray(n, g, a, m));
-					break;
+					if(a != 1) {	
+						print2(makeArray(n, g, a, m));
+					} else {
+						print(makeArray(n, g, a, m));
+						break;
+					}
 					
 				default:
 					throw new Exception();
