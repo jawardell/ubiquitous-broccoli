@@ -1,5 +1,4 @@
 #/!/bin/bash
 
 javac slopeTester.java
-echo 1 | java slopeTester > output
-
+echo 0 | java slopeTester 
