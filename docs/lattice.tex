@@ -1,6 +1,7 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{verbatim}
 \usepackage[latin1]{inputenc}
+\usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -40,11 +41,11 @@
   \begin{center}
 	  \caption{Reflected Skewed Top-Corridor}
   \psset{unit=0.5cm,xunit=.8cm}
-  \begin{pspicture}(0,-10)(10,9)
-  \psaxes[labels=none](0,0)(0,-8)(10,7)
+  \begin{pspicture}(0,-20)(20,20)
+ % \psaxes[labels=none](0,0)(0,-8)(10,7)
   
 
-    \psline[linestyle=dashed,linecolor=red](0,2)(10,7)
+   % \psline[linestyle=dashed,linecolor=red](0,3)(12,9)
    % \psline(0,1)(1,2)
    % \psline(1,2)(2,3)
    % \psline(2,1)(3,2)
@@ -88,7 +89,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     
-    \psline[linestyle=dashed,linecolor=red](0,-2)(10,-7)
+%   \psline[linestyle=dashed,linecolor=red](0,-3)(10,-8)
+   \psline[linestyle=solid,linecolor=blue](-0.2,-10)(-0.2,13.5)
+   \psline[linestyle=solid,linecolor=blue](-0.2,13.5)(11,-2)
+   \psline[linestyle=solid,linecolor=orange](5.8,-10)(5.8,12)
+   \psline[linestyle=solid,linecolor=orange](11,6.5)(5.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,-10)(9.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,12)(11,11)
     %\psline(0,-1)(1,-2)
     %\psline(1,-2)(2,-3)
     %\psline(2,-1)(3,-2)
@@ -132,70 +139,247 @@
 
 
 
-    \psdots
+   % \psdots
 	 % (0,0)(0,1)(0,2)
 	 % (1,0)(1,2)(1,1)
 	 % (2,0)(2,2)(2,1)(2,3)
 	 % (3,0)(3,2)(3,1)(3,3)
 	 % (4,0)(4,2)(4,1)(4,3)(4,4)
 	 % (5,0)(5,2)(5,1)(5,3)(5,4)
-	  (6,0)(6,2)(6,1)(6,3)(6,4)(6,5)
-	  (7,0)(7,2)(7,1)(7,3)(7,4)(7,5)
-	  (8,0)(8,2)(8,1)(8,3)(8,4)(8,5)(8,6)
-	  (9,0)(9,2)(9,1)(9,3)(9,4)(9,5)(9,6)
-	  (10,0)(10,2)(10,1)(10,3)(10,4)(10,5)(10,6)(10,7)
+	 % (6,0)(6,2)(6,1)(6,3)(6,4)(6,5)
+	 % (7,0)(7,2)(7,1)(7,3)(7,4)(7,5)
+	 % (8,0)(8,2)(8,1)(8,3)(8,4)(8,5)(8,6)
+	 % (9,0)(9,2)(9,1)(9,3)(9,4)(9,5)(9,6)
+	 % (10,0)(10,2)(10,1)(10,3)(10,4)(10,5)(10,6)(10,7)
 
 
-	\psdots
-	  (1,0)(1,-2)(1,-1)
-	  (2,0)(2,-2)(2,-1)(2,-3)
-	  (3,0)(3,-2)(3,-1)(3,-3)
-	  (4,0)(4,-2)(4,-1)(4,-3)(4,-4)
-	  (5,0)(5,-2)(5,-1)(5,-3)(5,-4)
-	  (6,0)(6,-2)(6,-1)(6,-3)(6,-4)(6,-5)
-	  (7,0)(7,-2)(7,-1)(7,-3)(7,-4)(7,-5)
-	  (8,0)(8,-2)(8,-1)(8,-3)(8,-4)(8,-5)(8,-6)
-	  (9,0)(9,-2)(9,-1)(9,-3)(9,-4)(9,-5)(9,-6)
-	  (10,0)(10,-2)(10,-1)(10,-3)(10,-4)(10,-5)(10,-6)(10,-7)
+	%\psdots
+	%  (1,0)(1,-2)(1,-1)
+	%  (2,0)(2,-2)(2,-1)(2,-3)
+	%  (3,0)(3,-2)(3,-1)(3,-3)
+	%  (4,0)(4,-2)(4,-1)(4,-3)(4,-4)
+	%  (5,0)(5,-2)(5,-1)(5,-3)(5,-4)
+	%  (6,0)(6,-2)(6,-1)(6,-3)(6,-4)(6,-5)
+	%  (7,0)(7,-2)(7,-1)(7,-3)(7,-4)(7,-5)
+	%  (8,0)(8,-2)(8,-1)(8,-3)(8,-4)(8,-5)(8,-6)
+	%  (9,0)(9,-2)(9,-1)(9,-3)(9,-4)(9,-5)(9,-6)
+	%  (10,0)(10,-2)(10,-1)(10,-3)(10,-4)(10,-5)(10,-6)(10,-7)
 
 
 
    
-   
+    \uput[u](0,0.5){\tiny{\color{red}$1$}}  
     \uput[u](0,1.5){\tiny{$0$}}
-    \uput[u](0,0.5){\tiny{$1$}}
+    \uput[u](0,2.5){\tiny{$0$}}
+   
 
     \uput[u](1,0.5){\tiny{$0$}}
-    \uput[u](1,1.5){\tiny{$1$}}
+    \uput[u](1,1.5){\tiny{\color{red}$1$}}
+    \uput[u](1,2.5){\tiny{$0$}}
+    \uput[u](1,3.5){\tiny{$0$}}
 
 
 
-
-    \uput[u](2,0.5){\tiny{$1$}}
+    \uput[u](2,0.5){\tiny{\color{cyan}$1$}}
     \uput[u](2,1.5){\tiny{$0$}}
-    \uput[u](2,2.5){\tiny{$1$}}
+    \uput[u](2,2.5){\tiny{\color{red}$1$}}
+    \uput[u](2,3.5){\tiny{$0$}}
 
 
     \uput[u](3,0.5){\tiny{$0$}}
-    \uput[u](3,1.5){\tiny{$2$}}
+    \uput[u](3,1.5){\tiny{\color{cyan}$2$}}
     \uput[u](3,2.5){\tiny{$0$}}
+    \uput[u](3,3.5){\tiny{\color{red}$1$}}
+    \uput[u](3,4.5){\tiny{$0$}}
 
 
  
-    \uput[u](4,0.5){\tiny{$2$}}
+    \uput[u](4,0.5){\tiny{\color{orange}$2$}}
     \uput[u](4,1.5){\tiny{$0$}}
-    \uput[u](4,2.5){\tiny{$2$}}
+    \uput[u](4,2.5){\tiny{\color{cyan}$3$}}
     \uput[u](4,3.5){\tiny{$0$}}
+    \uput[u](4,4.5){\tiny{\color{red}$1$}}
 
 
 
-    \uput[u](5,0.5){\tiny{$2$}}
-    \uput[u](5,1.5){\tiny{$0$}}
-    \uput[u](5,2.5){\tiny{$4$}}
-    \uput[u](5,3.5){\tiny{$0$}}
+    \uput[u](5,0.5){\tiny{$0$}}
+    \uput[u](5,1.5){\tiny{\color{orange}$5$}}
+    \uput[u](5,2.5){\tiny{$0$}}
+    \uput[u](5,3.5){\tiny{\color{cyan}$4$}}
+    \uput[u](5,4.5){\tiny{$0$}}
+    \uput[u](5,5.5){\tiny{\color{red}$1$}}
 
 
 
+    \uput[u](6,0.5){\tiny{\color{orange}$5$}}
+    \uput[u](6,1.5){\tiny{$0$}}
+    \uput[u](6,2.5){\tiny{\color{cyan}$9$}}
+    \uput[u](6,3.5){\tiny{$0$}}
+    \uput[u](6,4.5){\tiny{\color{red}$5$}}
+    \uput[u](6,5.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,0.5){\tiny{$0$}}
+    \uput[u](7,1.5){\tiny{\color{orange}$14$}}
+    \uput[u](7,2.5){\tiny{$0$}}
+    \uput[u](7,3.5){\tiny{\color{cyan}$14$}}
+    \uput[u](7,4.5){\tiny{$0$}}
+    \uput[u](7,5.5){\tiny{\color{red}$5$}}
+    \uput[u](7,6.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,0.5){\tiny{$14$}}
+    \uput[u](8,1.5){\tiny{$0$}}
+    \uput[u](8,2.5){\tiny{\color{orange}$28$}}
+    \uput[u](8,3.5){\tiny{$0$}}
+    \uput[u](8,4.5){\tiny{\color{cyan}$19$}}
+    \uput[u](8,5.5){\tiny{$0$}}
+    \uput[u](8,6.5){\tiny{\color{red}$5$}}
+
+
+
+    \uput[u](9,0.5){\tiny{$0$}}
+    \uput[u](9,1.5){\tiny{$42$}}
+    \uput[u](9,2.5){\tiny{$0$}}
+    \uput[u](9,3.5){\tiny{\color{orange}$47$}}
+    \uput[u](9,4.5){\tiny{$0$}}
+    \uput[u](9,5.5){\tiny{\color{cyan}$24$}}
+    \uput[u](9,6.5){\tiny{$0$}}
+    \uput[u](9,7.5){\tiny{\color{red}$5$}}
+
+
+
+
+    \uput[u](10,0.5){\tiny{$42$}}
+    \uput[u](10,1.5){\tiny{$0$}}
+    \uput[u](10,2.5){\tiny{\color{orange}$89$}}
+    \uput[u](10,3.5){\tiny{$0$}}
+    \uput[u](10,4.5){\tiny{\color{cyan}$71$}}
+    \uput[u](10,5.5){\tiny{$0$}}
+    \uput[u](10,6.5){\tiny{\color{red}$29$}}
+    \uput[u](10,7.5){\tiny{$0$}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \uput[u](0,-.5){\tiny{$0$}}
+    \uput[u](1,-.5){\tiny{$0$}}
+    \uput[u](2,-.5){\tiny{$0$}}
+    \uput[u](3,-.5){\tiny{$0$}}
+    \uput[u](4,-.5){\tiny{$0$}}
+    \uput[u](5,-.5){\tiny{$0$}}
+    \uput[u](6,-.5){\tiny{$0$}}
+    \uput[u](7,-.5){\tiny{$0$}}
+    \uput[u](8,-.5){\tiny{$0$}}
+    \uput[u](9,-.5){\tiny{$0$}}
+    \uput[u](10,-.5){\tiny{$0$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \uput[u](0,-1.5){\tiny{$-1$}}  
+    \uput[u](0,-2.5){\tiny{$0$}}
+    \uput[u](0,-3.5){\tiny{$0$}}
+   
+
+    \uput[u](1,-1.5){\tiny{$0$}}
+    \uput[u](1,-2.5){\tiny{$-1$}}
+    \uput[u](1,-3.5){\tiny{$0$}}
+    \uput[u](1,-4.5){\tiny{$-1$}}
+
+
+
+    \uput[u](2,-1.5){\tiny{$-1$}}
+    \uput[u](2,-2.5){\tiny{$0$}}
+    \uput[u](2,-3.5){\tiny{$-1$}}
+    \uput[u](2,-4.5){\tiny{$0$}}
+
+
+    \uput[u](3,-1.5){\tiny{$0$}}
+    \uput[u](3,-2.5){\tiny{$-2$}}
+    \uput[u](3,-3.5){\tiny{$0$}}
+    \uput[u](3,-4.5){\tiny{$-1$}}
+    \uput[u](3,-5.5){\tiny{$0$}}
+
+
+ 
+    \uput[u](4,-1.5){\tiny{$-2$}}
+    \uput[u](4,-2.5){\tiny{$0$}}
+    \uput[u](4,-3.5){\tiny{$-3$}}
+    \uput[u](4,-4.5){\tiny{$0$}}
+    \uput[u](4,-5.5){\tiny{$-1$}}
+
+
+
+    \uput[u](5,-1.5){\tiny{$0$}}
+    \uput[u](5,-2.5){\tiny{$-5$}}
+    \uput[u](5,-3.5){\tiny{$0$}}
+    \uput[u](5,-4.5){\tiny{$-4$}}
+    \uput[u](5,-5.5){\tiny{$0$}}
+    \uput[u](5,-6.5){\tiny{$-1$}}
+
+
+
+    \uput[u](6,-1.5){\tiny{$-5$}}
+    \uput[u](6,-2.5){\tiny{$0$}}
+    \uput[u](6,-3.5){\tiny{$-9$}}
+    \uput[u](6,-4.5){\tiny{$0$}}
+    \uput[u](6,-5.5){\tiny{$-5$}}
+    \uput[u](6,-6.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,-1.5){\tiny{$0$}}
+    \uput[u](7,-2.5){\tiny{$-14$}}
+    \uput[u](7,-3.5){\tiny{$0$}}
+    \uput[u](7,-4.5){\tiny{$-14$}}
+    \uput[u](7,-5.5){\tiny{$0$}}
+    \uput[u](7,-6.5){\tiny{$-5$}}
+    \uput[u](7,-7.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,-1.5){\tiny{$-14$}}
+    \uput[u](8,-2.5){\tiny{$0$}}
+    \uput[u](8,-3.5){\tiny{$-28$}}
+    \uput[u](8,-4.5){\tiny{$0$}}
+    \uput[u](8,-5.5){\tiny{$-19$}}
+    \uput[u](8,-6.5){\tiny{$0$}}
+    \uput[u](8,-7.5){\tiny{$-5$}}
+
+
+
+    \uput[u](9,-1.5){\tiny{$0$}}
+    \uput[u](9,-2.5){\tiny{$-42$}}
+    \uput[u](9,-3.5){\tiny{$0$}}
+    \uput[u](9,-4.5){\tiny{$-47$}}
+    \uput[u](9,-5.5){\tiny{$0$}}
+    \uput[u](9,-6.5){\tiny{$-24$}}
+    \uput[u](9,-7.5){\tiny{$0$}}
+    \uput[u](9,-8.5){\tiny{$-5$}}
+
+
+
+
+    \uput[u](10,-1.5){\tiny{$-42$}}
+    \uput[u](10,-2.5){\tiny{$0$}}
+    \uput[u](10,-3.5){\tiny{$-89$}}
+    \uput[u](10,-4.5){\tiny{$0$}}
+    \uput[u](10,-5.5){\tiny{$-71$}}
+    \uput[u](10,-6.5){\tiny{$0$}}
+    \uput[u](10,-7.5){\tiny{$-29$}}
+    \uput[u](10,-8.5){\tiny{$0$}}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	  \begin{comment}
     \uput[70](0,0){\tiny{$1$}}
     \uput[70](0,1){\tiny{$0$}}
