@@ -6,7 +6,7 @@ There is currently not a closed-form formula for
 skewed top corridor numbers. 
 The study of STC falls within the realm of 
 enumerative combinatorics and lattice path counting. 
-These corridors are simple, yet complex. This study is 
+These corridors are simple, yet complex and this study is 
 an ongoing work. I presented some of the progress on 
 STCs at an undergraduate research conference at my 
 school. For more information about STCs, check out the 
@@ -15,7 +15,10 @@ media directory.
 
 
 I wrote a program to generate STC numbers 
-in a basic command line interface style. 
+in a basic command line interface style. If you would 
+like to start studying STCs, use this program by following 
+the steps below. Please note that you will need to adjust the 
+font size in your command line for proper results. 
 
 ### How to use
 First, clone this repository by issuing the following command: 
