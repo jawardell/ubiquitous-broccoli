@@ -1,4 +1,0 @@
-#/!/bin/bash
-
-javac slopeTester.java
-echo 0 | java slopeTester 
