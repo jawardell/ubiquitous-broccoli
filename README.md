@@ -15,7 +15,7 @@ school. For more information about STCs, check out the
 media directory.
 
 <br>
-<img style="border:5px solid black" src="/media/latex/imgs/seq.png"/>
+<img src="/media/latex/imgs/seq.png"/>
 <br>
 
 I wrote a program to generate STC numbers 
