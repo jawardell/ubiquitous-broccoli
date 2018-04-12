@@ -15,7 +15,7 @@ school. For more information about STCs, check out the
 media directory.
 
 <br>
-![Alt Text](/media/latex/imgs/seq.png?raw=true "STC Numbers")
+![Alt text](/media/latex/imgs/seq.png?raw=true "STC Numbers")
 <br>
 
 I wrote a program to generate STC numbers 
