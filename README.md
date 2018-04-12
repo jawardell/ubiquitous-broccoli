@@ -8,7 +8,7 @@ there is currently not a closed-form formula for
 skewed top corridor numbers. 
 The study of STCs falls within the realm of 
 enumerative combinatorics and lattice path counting. 
-These corridors are simple, yet complex and this study is 
+These corridors are simple yet complex and this study is 
 an ongoing work. I presented some of the progress on 
 STCs at an undergraduate research conference at my 
 school. For more information about STCs, check out the 
@@ -23,6 +23,9 @@ in a basic command line interface style. If you would
 like to start studying STCs, use this program by following 
 the steps below. Please note that you will need to adjust the 
 font size in your command line for proper results. 
+
+You'll need to have the <a href="https://java.com/en/">Java Runtime Environment</a> and the 
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java Development Kit</a> installed. 
 
 ### How to use
 First, clone this repository by issuing the following command...
