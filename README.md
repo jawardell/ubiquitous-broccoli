@@ -8,7 +8,7 @@ there is currently not a closed-form formula for
 skewed top corridor numbers. 
 The study of STCs falls within the realm of 
 enumerative combinatorics and lattice path counting. 
-These corridors are simple, yet complex and this study is 
+These corridors are simple yet complex and this study is 
 an ongoing work. I presented some of the progress on 
 STCs at an undergraduate research conference at my 
 school. For more information about STCs, check out the 
