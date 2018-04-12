@@ -3,8 +3,7 @@
 Skewed top corridor numbers lie within a 
 structure called a skewed-top corridor. 
 The sequences that have been spotted in these 
-corridors haven't been documented by anyone else as 
-far as we can tell and 
+corridors don't seem to have been documented by anyone else and 
 there is currently not a closed-form formula for 
 skewed top corridor numbers. 
 The study of STCs falls within the realm of 
