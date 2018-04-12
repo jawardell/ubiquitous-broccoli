@@ -1,8 +1,8 @@
-#Skewed Top Corridor Number Generator
+Skewed Top Corridor Number Generator
 
 Skewed top corridor numbers lie within a 
 structure called a skewed-top corridor. 
-There is not a closed-form formula for 
+There is currently not a closed-form formula for 
 skewed top corridor numbers. 
 
 I wrote a program to generate STC numbers 
