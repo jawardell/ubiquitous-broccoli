@@ -14,7 +14,9 @@ STCs at an undergraduate research conference at my
 school. For more information about STCs, check out the 
 media directory.
 
-
+<br>
+![Alt Text](/media/latex/imgs/seq.png?raw=true "STC Numbers")
+<br>
 
 I wrote a program to generate STC numbers 
 in a basic command line interface style. If you would 
