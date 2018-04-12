@@ -2,7 +2,10 @@
 
 Skewed top corridor numbers lie within a 
 structure called a skewed-top corridor. 
-There is currently not a closed-form formula for 
+The sequences that have been spotted in these 
+corridors haven't been documented by anyone else as 
+far as we can tell and 
+there is currently not a closed-form formula for 
 skewed top corridor numbers. 
 The study of STCs falls within the realm of 
 enumerative combinatorics and lattice path counting. 
@@ -21,12 +24,12 @@ the steps below. Please note that you will need to adjust the
 font size in your command line for proper results. 
 
 ### How to use
-First, clone this repository by issuing the following command: 
+First, clone this repository by issuing the following command...
 
 `git clone https://github.com/jawardell/ubiquitous-broccoli`
 
 
-Then move into the directory: 
+...then move into the directory: 
 
 `cd ubiquitous-broccoli`
 
