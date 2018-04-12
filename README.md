@@ -40,7 +40,7 @@ following command:
 
 `./config`
 
-To generate STCs on a Batch-Style terminal, 
+To generate STCs in a batch terminal, 
 issue the following commands: 
 
 `javac src/slopeTester.java`<br>
