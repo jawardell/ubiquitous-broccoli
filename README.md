@@ -4,7 +4,7 @@ Skewed top corridor numbers lie within a
 structure called a skewed-top corridor. 
 There is currently not a closed-form formula for 
 skewed top corridor numbers. 
-The study of STC falls within the realm of 
+The study of STCs falls within the realm of 
 enumerative combinatorics and lattice path counting. 
 These corridors are simple, yet complex and this study is 
 an ongoing work. I presented some of the progress on 
