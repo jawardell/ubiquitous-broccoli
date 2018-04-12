@@ -39,7 +39,7 @@ following command:
 To generate STCs on a Batch-Style terminal, 
 issue the following commands: 
 
-`javac src/slopeTester.java`
+`javac src/slopeTester.java`<br>
 `java src/slopeTester`
 
 
