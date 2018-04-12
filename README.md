@@ -41,7 +41,7 @@ To generate STCs on a Unix terminal,
 execute the config script by issuing the 
 following command: 
 
-`./config`
+`./config.sh`
 
 To generate STCs in a batch command prompt, 
 issue the following commands: 
