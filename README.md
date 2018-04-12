@@ -24,6 +24,9 @@ like to start studying STCs, use this program by following
 the steps below. Please note that you will need to adjust the 
 font size in your command line for proper results. 
 
+You'll need to have the <a href="https://java.com/en/">Java Runtime Environment</a> and the 
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java Development Kit</a> installed. 
+
 ### How to use
 First, clone this repository by issuing the following command...
 
