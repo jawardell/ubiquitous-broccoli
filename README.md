@@ -46,8 +46,8 @@ following command:
 To generate STCs in a batch command prompt, 
 issue the following commands: 
 
-`javac src/slopeTester.java`<br>
-`java src/slopeTester`
+`javac src\slopeTester.java`<br>
+`java src\slopeTester`
 
 
 Check out the programs that I wrote to generate 
