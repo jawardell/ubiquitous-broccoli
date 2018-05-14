@@ -140,7 +140,7 @@ in the configurations of this environment.
   $\hat{\imath} = \begin{bmatrix}1\\0\\\end{bmatrix} \text{and }  
     \hat{\jmath} = \begin{bmatrix}0\\1\\\end{bmatrix}\text{.}$ In other words, it is the $\set{R}^2$ plane with $\hat{\imath}$ and $\hat{\jmath}$ basis vectors.\\*\\*
       %*I felt the need to include this because how else are people supposed to know how to index the grid lines of the plane. Who's to say that 
-      one grid line is one unit? What is an acurate "wow lol, reading this from a while in the future, this is cringe worthy, the spelling tho. . . "way to describe the INDEXING of the grid space. *% 
+      one grid line is one unit? What is an acurate way to describe the INDEXING of the grid space. *% 
   Skewed top corridors may be referenced by their $g$ value. Let $C_g$ be the corridor with gap $=g$.\\*\\*
   The diagonals, a concepts discussed later, may also be referenced in the corridor. Let $C_gd_j$ where $j \in \set{N}_0$. Then $C_gd_j$ is the diagonal $j$ in corridor $g$.
   \subsection*{Propagating Values}

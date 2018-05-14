@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage[margin=0.5in]{geometry}
+
+\linespread{1.25}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand*{\set}[1]{\mathbb{#1}}
+\topmargin = -1.75in
+
+\newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\title{An Exploration of Skewed Top Corridors\vspace{-2ex}}
+\author{Joanne Wardell}
+\date{2017-2018\vspace{-2ex}}
+
+\begin{document}
+  
+  \maketitle
+
+  \tab Lattice paths have been studied extensively over the course of several centuries. For the purpose of this study, 
+  a lattice consists of points $\set{Z}^2$ with certain restrictions and with only two allowable moves, up-right 
+  and down right. Movements in various directions on the lattice are called paths.\par
+  
+  \tab We are studying a lattice path model which consists of a point at which all paths begin, upper and lower bounds 
+  which mark areas beyond which non-zero paths cease to exist, and an ending point which marks the end of non-zero path  
+  values. The area of the lattice contained by the upper and lower bound is referred to as a corridor.  The number of  
+  paths within the corridor depend on the initial value which is placed at the starting position of the corridor, the 
+  nature of the upper and lower bounds, and the position of the starting value in the corridor. The upper and lower 
+  boundary lines mark the areas where non-zero path values cease to exist. Paths can exist on the two boundary lines,  
+  but they cannot exist beyond the lines. The lower boundary is essentially a horizontal line with zero slope. The upper 
+  boundary line is a line with variable slope. These conditions seem to present a problem when attempting to 
+  systematically generate values contained in the corridors. Due to the nature of the upper bound, which is a line 
+  with slope not parallel to that of the lower bound, the paths bounce off of the upper diagonal line, rippling into 
+  and distorting the data below it. One might propose that calculating the error caused by each interruption would be 
+  somewhat intuitive, but the impacts of each diagonal-boundary disturbance grow larger as time in the corridor 
+  progresses. Although the data changes because of the upper bound's slope, intriguing patterns and characteristics 
+  have been observed in the configurations of this environment. The corridor model which has varying boundary lines 
+  is referred to as a skewed top corridor.\par
+  
+  \tab We interpret the corridor, for now, on the two dimensional Cartesian coordinate plane which is the span of unit  
+  vectors $\hat{\imath} = \vec(1, 0)$ and $\hat{\jmath} = \vec(0, 1)$. The elapse of time is represented along the x-axis.  
+  The amount of paths is represented along the y-axis which is perpendicular to the x-axis. At a glance, the structure 
+  of the corridor consists of an initial value placed at a starting position in the corridor. A gap of predetermined size 
+  exists in the same column as the starting position. The size of the gap is equal to the number of lattice points extending    
+  vertically from the starting position and includes the starting path value. The gap, for now, extends vertically in the   
+  positive direction of the y-axis, for which our convention is upward. Values in this gap are zeros except for the starting 
+  value which is also contained in the gap. Our exploration consists of manipulating the initial conditions of the corridors, 
+  observing and quantifying the results, and assembling various formulas to express relationships that we notice. We want to 
+  learn as much as we can about these corridor structures and what the relationships within them might encode.\par
+  %might delete last sentence
+  
+  \subsection*{Symbols and Definitions}
+  \tab We start our journey of exploring skewed top corridors by establishing our definitions. We also need a symbolic method 
+  for referring to specific aspects of the corridors. We will use these specific symbols and definitions not only to discuss 
+  corridors but to also make mathematical conclusions about the structures.\\*\\*
+  
+  \noindent First off, we will be using the set of numbers which are integers larger than one.
+  \begin{defn} Let the set of natural numbers be represented by $\set{N}$.\\ \end{defn}\par
+  
+  \noindent We will also discuss integers which are positive and greater than zero. 
+  \begin{defn} Let $\set{N}_0$ represent the set of natural numbers including zero. \end{defn}
+  
+  %margin chops this part off.. :'(
+  \noindent At times, we will need to utilize the set of integer values which are positive, negative, and include zero. 
+  \begin{defn} Let $\set{Z}$ represent the set of integers. \\ \end{defn}
+  
+  \noindent We can now begin defining some of the parameters for establishing the skewed-top corridor. Let us begin by defining 
+  the corridor gap. This will be an important feature later in our journey. 
+  \begin{defn} Let $g \in \set{N}$ equal the gap size in the corridor. \end{defn}
+  \noindent This value $g$ is the number of points in the column of the initial starting path value in the corridor. It 
+  simply counts the number of points in the starting column including the starting value. The gap is one of the parameters 
+  which is required to establish a skewed top corridor.
+
+  
+\end{document}
+
+
