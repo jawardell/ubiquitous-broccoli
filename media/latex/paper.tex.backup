@@ -80,18 +80,7 @@
   \begin{defn} Let $g \in \set{N}$ equal the gap size in the corridor. \end{defn}
   \noindent This value $g$ is the number of points in the column of the initial starting path value in the corridor. It 
   simply counts the number of points in the starting column including the starting value. The gap is one of the parameters 
-  which is required to establish a skewed top corridor. 
-  %might not put this here
-  We will allow the gap to vary over time and will later discuss this in more detail.\\
-  
-  \noindent Another important parameter for the skewed top corridor is the value that is placed at the 
-  beginning of the structure. This value exsits at a position in the gap. We will define this position momentarily.
-  \begin{defn} Let $v \in \set{N}$ represent the initial number of paths at the begining of the corridor.\\ \end{defn}
-  
-  \noindent The position at which the initial value $v$ is placed is an important factor. 
-  \begin{defn} Let $$
-  
-  
+  which is required to establish a skewed top corridor.
 
   
 \end{document}
