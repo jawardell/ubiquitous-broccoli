@@ -51,7 +51,9 @@
   is referred to as a skewed top corridor.\par
   
   \tab We interpret the corridor, for now, on the two dimensional Cartesian coordinate plane which is the span of unit  
-  vectors $\hat{\imath} = \vec(1, 0)$ and $\hat{\jmath} = \vec(0, 1)$. The elapse of time is represented along the x-axis.  
+  vectors $\hat{\imath} = \vec(1, 0)$ and $\hat{\jmath} = \vec(0, 1)$. 
+  We refer to the vertical axis as the y-axis and the horizontal axis as the x-axis.
+  The elapse of time is represented along the x-axis. 
   The amount of paths is represented along the y-axis which is perpendicular to the x-axis. At a glance, the structure 
   of the corridor consists of an initial value placed at a starting position in the corridor. A gap of predetermined size 
   exists in the same column as the starting position. The size of the gap is equal to the number of lattice points extending    
@@ -87,8 +89,8 @@
   We will allow the gap to vary over time and will later discuss this in more detail.\\
   
   \noindent Another important parameter for the skewed top corridor is the value that is placed at the 
-  beginning of the structure. This value exsits at a position in the gap. We will define this position momentarily.
-  \begin{defn} Let $v \in \set{N}$ represent the initial number of paths at the begining of the corridor.\\ \end{defn}
+  beginning of the structure. This value exists at a position in the gap. We will define this position momentarily.
+  \begin{defn} Let $v \in \set{N}$ represent the initial number of paths at the beginning of the corridor.\\ \end{defn}
   
   \noindent The position at which the initial value $v$ is placed is an important factor. 
   \begin{defn} Let $a \in \set{N}$ be the location on the horizontal axis where the paths begin. The starting point 
@@ -99,13 +101,13 @@
   \begin{defn} Let $V \mathpunct{:} \set{N}_0 \times \set{N}_0 \rightarrow \set{N}_0$ and let us refer to this as a corridor state 
   function. The output of $V$ is $\in \set{N}_0$ and denotes the number of paths at some point in the corridor.\\ \end{defn}
   
-  \noindent As we vary these parameters, different corridors are procduced. We've developed the following notation for characterizing 
+  \noindent As we vary these parameters, different corridors are produced. We've developed the following notation for characterizing 
   corridors.
   \begin{defn} Let $C_g$ be the corridor with gap $=g$. \\ \end{defn}
   
   \noindent The diagonal values in said corridors are one of the features of interest. Diagonals are characterized by their start and end points.
   We will learn more about the characteristics of corridor diagonals and will develop more definitions later in the paper. 
-  \begin{defn} Let $D_y$, $y \in \set{Z}$, be the diagonal beginning at position $(0, y)$. \\ \end{defn}
+  \begin{defn} Let $D_y$, $y \in \set{Z}$, be the diagonal beginning at position $(0, y)$ and ending at an inclusive point on corridor's upper boundary. \\ \end{defn}
 
   
   
@@ -123,7 +125,8 @@
   such points according to the following procedure. Continually move one unit rightward, keeping track of the current column number, or, horizontal coordinate. 
   Record the current position on the vertical axis as well. If the current column is divisible by $r$, place a sentinel marker at the $(horizontal, vertical)$ 
   position on the grid, move up one unit on the horizontal axis, and move rightward one unit on the vertical axis. If the current column is not divisible by $r$, 
-  do not place a sentinel marker, move up zero units on the horizontal axis, and move rightward one unit on the vertical axis. Do this until the current vertical position is $n$.\\*
+  do not place a sentinel marker, move up zero units on the horizontal axis, and move rightward one unit on the vertical axis. Do this until the current vertical 
+  position is $n$.\\*
   Generally, the procedure for initializing the sentinel line is as follows:
   \begin{itemize}
     \item[] place first sentinel point at $(0, g+1)$ 
@@ -148,12 +151,14 @@
 			0 \text{, otherwise}
 		\end{cases}
 	\end{align}
-	
+  
+ 
+  
   \subsection*{Observations}
     \noindent The corridor will contain values beginning at $(0,1)$, with rows starting from $1$ extending to $g+ \frac{n+1}{2}$ inclusive
     and columns starting from $0$ extending to $n$ inclusive.\\*\\*
     
-    \noindent The sentinel points implicitly form a line with a slope of $m$, which we have set to $\frac{1}{2}$. The follwing statements 
+    \noindent The sentinel points implicitly form a line with a slope of $m$, which we have set to $\frac{1}{2}$. The following statements 
     build upon the characteristics of this line, the sentinel line.\\*\\*
 
     \noindent From point $(0, 1)$, a line of $1$s with slope one is generated until the sentinel line is encountered at $(2g-1, 2g)$.
@@ -162,265 +167,55 @@
     The line of ones will exist due to the nature of how the numbers in the corridor are generated, see (1). The value $V(k,x)$ accepts an upper contribution of $0$ and a
     lower contribution from the initial value $1$. Because of this initial state, a line of $1$s will be generated because numbers outside of the corridor are $0$ and 
     contributions from the previous $1$ will calculate more $1$s. An equation for the sentinel line is $y = \frac{1}{2}x+g+1$ and an equation for the line of ones 
-    is $y=x+1$. To see where these two lines intersect, simply set the two equations equal to each other and solve for the $x$ and $y$ coordinates of the intersection.
+    is $y=x+1$. To see where these two lines intersect, simply set the two equations equal to each other and solve for the $x$ and $y$ coordinates of the intersection.\\
     \[\frac{1}{2}x+g+1=x+1\]
     \[x = 2g\]
     \[y=2g+1\]
-    \[(2g, 2g+1)\]
+    \begin{align}(2g, 2g+1) \end{align} \\
+    
+    \noindent The $D_{-1}$ diagonal is the counting numbers.
+ By setup and $(1)$, $D_{1}$ is a sequence consisting of $2g$ elements.
+ The following is an inductive proof based on the fact that the line of $1$s exists and formula (1).
+
+\begin{gather*}
+  \text{Prove   } V(k+1, k) = k\text{ , where } 2 \leq k \leq 2g\text{.} \\
+  \text{Base Case: }k = 2\\
+  V(k+1,k) = V(k,k-1) + V(k,k+1)\\
+  V(3,2) = V(2,1) + V(2,3)\\
+  2 = 2\\
+  \text{Assume } V(k+1, k) = k \text{ for all } \leq k \leq 2g \text{. }
+  \text{Use } k+1 \text{.}\\
+  V(k+2,k+1)\\
+  V(k+1,k) + V(k+1, k+2)
+\end{gather*}
+\begin{align}
+  \tab\tab\tab\tab\tab\tab k + 1^* \tab\tab\tab \text{ *while } k \leq 2g
+ \end{align}
     
   \subsection*{Conjecture}
   
-  Four-element sequences exist in the corridors along with additional sequences of greater length. If $D_{-3}$ is an arithmetic sequence with degree $N$, then
-  $D_{-1}$ is a sequence with degree $N+1$ and $D_{-1}$ is a sequence with degree $N-1$. Because the values within the corridors are defined by equation $(1)$, 
-  sequences contribute to eachother linearly via addtion. This results in sequences and subsequences in the corridor that are of increasing degree 
-  as one moves in the negative direction on the $y$ axis.
+  \tab Four-element arithmetic sequences exist in the corridors along with additional sequences of greater length. If $D_{-3}$ is an 
+  arithmetic sequence with degree $N$, where $N \in \set{N}_0$, then
+  $D_{-1}$ is a sequence with degree $N+1$ and $D_{-1}$ is a sequence with degree $N-1$. Because the values within the corridors are defined by formula $(1)$, 
+  $D_{1}$ is a degree $0$ sequence by setup, and $D_{-1}$ is a degree $1$ sequence by $(2)$,
+  sequences contribute to each other linearly via addition. This results in sequences and subsequences in the corridor that are of increasing degree 
+  as one approaches $-\infty$ on the $y$ axis.\\
+  \tab $2g$-element sequences begin at coordinate $(0,2y-1)$, end at coordinate $(2g-1, 2g-|y|)$, and have degree $N = -\frac{1}{2}(y - 1)$. 
+  For $(2y-1) < 1$, the first instance four-element subsequences begins at coordinate $(2g, 2g-y)$, ends at coordinate $(2g + 3, 2g-y + 3)$, and is of degree
+  $N = -\frac{1}{2}(y + 1)$.\\
+  \tab Subsequence $\sigma_{\hat{y}}^{\hat{x}}$, where ${\hat{y} \in \set{Z}}$ and ${\hat{x} \in \set{N}_0}$, denotes the $\hat{x}^{th}$ 
+  subsequence of diagonal $D_{\hat{y}}$. Four-element subsequences of $D_{\hat{y}}$ are classified as all $\sigma_{\hat{y}}^{\hat{x}}$ where 
+  $\hat{x} > 0$. For all $4$-element subsequences after $\hat{x} = 1$, the beginning coordinate is $(2g + 3\hat{x}, 2g+3\hat{x})$ and 
+  the ending coordinate is $(2g + 3\hat{x}+3, 2g+3\hat{x}+3)$. 
+  $\sigma_{\hat{y}}^{\hat{x}}$ with $\hat{x} > 0$ have a degree of $N = -\frac{1}{2}(\hat{y} - 1) - \hat{x}$.
   
-  
-     \begin{center}
-    \caption{Reflected Skewed Top-Corridor}
-    \psset{unit=0.5cm,xunit=.8cm}
-    \begin{pspicture}(0,-20)(20,20)
-    
-   \psline[linestyle=solid,linecolor=blue](-0.2,-9)(-0.2,12)
-   \psline[linestyle=solid,linecolor=blue](-0.2,12)(11,0.5)
-   \psline[linestyle=solid,linecolor=orange](5.8,-9)(5.8,12)
-   \psline[linestyle=solid,linecolor=orange](11,6.2)(5.8,12)
-   \psline[linestyle=solid,linecolor=green](9.8,-9)(9.8,12)
-   \psline[linestyle=solid,linecolor=green](9.8,12)(11,10.5)
-    
-    \uput[u](0,0.5){\tiny{\color{red}$1$}}  
-    \uput[u](0,1.5){\tiny{$0$}}
-    \uput[u](0,2.5){\tiny{$0$}}
-   
-
-    \uput[u](1,0.5){\tiny{$0$}}
-    \uput[u](1,1.5){\tiny{\color{red}$1$}}
-    \uput[u](1,2.5){\tiny{$0$}}
-    \uput[u](1,3.5){\tiny{$0$}}
-
-
-
-    \uput[u](2,0.5){\tiny{\color{cyan}$1$}}
-    \uput[u](2,1.5){\tiny{$0$}}
-    \uput[u](2,2.5){\tiny{\color{red}$1$}}
-    \uput[u](2,3.5){\tiny{$0$}}
-
-
-    \uput[u](3,0.5){\tiny{$0$}}
-    \uput[u](3,1.5){\tiny{\color{cyan}$2$}}
-    \uput[u](3,2.5){\tiny{$0$}}
-    \uput[u](3,3.5){\tiny{\color{red}$1$}}
-    \uput[u](3,4.5){\tiny{$0$}}
 
 
  
-    \uput[u](4,0.5){\tiny{\color{orange}$2$}}
-    \uput[u](4,1.5){\tiny{$0$}}
-    \uput[u](4,2.5){\tiny{\color{cyan}$3$}}
-    \uput[u](4,3.5){\tiny{$0$}}
-    \uput[u](4,4.5){\tiny{\color{red}$1$}}
-
-
-
-    \uput[u](5,0.5){\tiny{$0$}}
-    \uput[u](5,1.5){\tiny{\color{orange}$5$}}
-    \uput[u](5,2.5){\tiny{$0$}}
-    \uput[u](5,3.5){\tiny{\color{cyan}$4$}}
-    \uput[u](5,4.5){\tiny{$0$}}
-    \uput[u](5,5.5){\tiny{\color{red}$1$}}
-
-
-
-    \uput[u](6,0.5){\tiny{\color{orange}$5$}}
-    \uput[u](6,1.5){\tiny{$0$}}
-    \uput[u](6,2.5){\tiny{\color{cyan}$9$}}
-    \uput[u](6,3.5){\tiny{$0$}}
-    \uput[u](6,4.5){\tiny{\color{red}$5$}}
-    \uput[u](6,5.5){\tiny{$0$}}
-
-
-    
-    \uput[u](7,0.5){\tiny{$0$}}
-    \uput[u](7,1.5){\tiny{\color{orange}$14$}}
-    \uput[u](7,2.5){\tiny{$0$}}
-    \uput[u](7,3.5){\tiny{\color{cyan}$14$}}
-    \uput[u](7,4.5){\tiny{$0$}}
-    \uput[u](7,5.5){\tiny{\color{red}$5$}}
-    \uput[u](7,6.5){\tiny{$0$}}
-
-
-
-
-    \uput[u](8,0.5){\tiny{\color{Magenta}$14$}}
-    \uput[u](8,1.5){\tiny{$0$}}
-    \uput[u](8,2.5){\tiny{\color{orange}$28$}}
-    \uput[u](8,3.5){\tiny{$0$}}
-    \uput[u](8,4.5){\tiny{\color{cyan}$19$}}
-    \uput[u](8,5.5){\tiny{$0$}}
-    \uput[u](8,6.5){\tiny{\color{red}$5$}}
-
-
-
-    \uput[u](9,0.5){\tiny{$0$}}
-    \uput[u](9,1.5){\tiny{\color{Magenta}$42$}}
-    \uput[u](9,2.5){\tiny{$0$}}
-    \uput[u](9,3.5){\tiny{\color{orange}$47$}}
-    \uput[u](9,4.5){\tiny{$0$}}
-    \uput[u](9,5.5){\tiny{\color{cyan}$24$}}
-    \uput[u](9,6.5){\tiny{$0$}}
-    \uput[u](9,7.5){\tiny{\color{red}$5$}}
-
-
-
-
-    \uput[u](10,0.5){\tiny{\color{Magenta}$42$}}
-    \uput[u](10,1.5){\tiny{$0$}}
-    \uput[u](10,2.5){\tiny{\color{orange}$89$}}
-    \uput[u](10,3.5){\tiny{$0$}}
-    \uput[u](10,4.5){\tiny{\color{cyan}$71$}}
-    \uput[u](10,5.5){\tiny{$0$}}
-    \uput[u](10,6.5){\tiny{\color{red}$29$}}
-    \uput[u](10,7.5){\tiny{$0$}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \uput[u](0,-.5){\tiny{$0$}}
-    \uput[u](1,-.5){\tiny{\color{cyan}$0$}}
-    \uput[u](2,-.5){\tiny{$0$}}
-    \uput[u](3,-.5){\tiny{\color{orange}$0$}}
-    \uput[u](4,-.5){\tiny{$0$}}
-    \uput[u](5,-.5){\tiny{\color{Magenta}$0$}}
-    \uput[u](6,-.5){\tiny{$0$}}
-    \uput[u](7,-.5){\tiny{\color{Magenta}$0$}}
-    \uput[u](8,-.5){\tiny{$0$}}
-    \uput[u](9,-.5){\tiny{$0$}}
-    \uput[u](10,-.5){\tiny{$0$}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-    \uput[u](0,-1.5){\color{cyan}\tiny{$-1$}}  
-    \uput[u](0,-2.5){\tiny{$0$}}
-    \uput[u](0,-3.5){\tiny{\color{orange}$0$}}
-   
-
-    \uput[u](1,-1.5){\tiny{$0$}}
-    \uput[u](1,-2.5){\tiny{\color{orange}$-1$}}
-    \uput[u](1,-3.5){\tiny{$0$}}
-    \uput[u](1,-4.5){\tiny{\color{Magenta}$-1$}}
-
-
-
-    \uput[u](2,-1.5){\color{orange}\tiny{$-1$}}
-    \uput[u](2,-2.5){\tiny{$0$}}
-    \uput[u](2,-3.5){\tiny{\color{Magenta}$-1$}}
-    \uput[u](2,-4.5){\tiny{$0$}}
-
-
-    \uput[u](3,-1.5){\tiny{$0$}}
-    \uput[u](3,-2.5){\tiny{\color{Magenta}$-2$}}
-    \uput[u](3,-3.5){\tiny{$0$}}
-    \uput[u](3,-4.5){\tiny{$-1$}}
-    \uput[u](3,-5.5){\tiny{$0$}}
-
-
- 
-    \uput[u](4,-1.5){\tiny{\color{Magenta}$-2$}}
-    \uput[u](4,-2.5){\tiny{$0$}}
-    \uput[u](4,-3.5){\tiny{$-3$}}
-    \uput[u](4,-4.5){\tiny{$0$}}
-    \uput[u](4,-5.5){\tiny{$-1$}}
-
-
-
-    \uput[u](5,-1.5){\tiny{$0$}}
-    \uput[u](5,-2.5){\tiny{$-5$}}
-    \uput[u](5,-3.5){\tiny{$0$}}
-    \uput[u](5,-4.5){\tiny{$-4$}}
-    \uput[u](5,-5.5){\tiny{$0$}}
-    \uput[u](5,-6.5){\tiny{$-1$}}
-
-
-
-    \uput[u](6,-1.5){\color{Magenta}\tiny{$-5$}}
-    \uput[u](6,-2.5){\tiny{$0$}}
-    \uput[u](6,-3.5){\tiny{$-9$}}
-    \uput[u](6,-4.5){\tiny{$0$}}
-    \uput[u](6,-5.5){\tiny{$-5$}}
-    \uput[u](6,-6.5){\tiny{$0$}}
-
-
-    
-    \uput[u](7,-1.5){\tiny{$0$}}
-    \uput[u](7,-2.5){\tiny{$-14$}}
-    \uput[u](7,-3.5){\tiny{$0$}}
-    \uput[u](7,-4.5){\tiny{$-14$}}
-    \uput[u](7,-5.5){\tiny{$0$}}
-    \uput[u](7,-6.5){\tiny{$-5$}}
-    \uput[u](7,-7.5){\tiny{$0$}}
-
-
-
-
-    \uput[u](8,-1.5){\tiny{$-14$}}
-    \uput[u](8,-2.5){\tiny{$0$}}
-    \uput[u](8,-3.5){\tiny{$-28$}}
-    \uput[u](8,-4.5){\tiny{$0$}}
-    \uput[u](8,-5.5){\tiny{$-19$}}
-    \uput[u](8,-6.5){\tiny{$0$}}
-    \uput[u](8,-7.5){\tiny{$-5$}}
-
-
-
-    \uput[u](9,-1.5){\tiny{$0$}}
-    \uput[u](9,-2.5){\tiny{$-42$}}
-    \uput[u](9,-3.5){\tiny{$0$}}
-    \uput[u](9,-4.5){\tiny{$-47$}}
-    \uput[u](9,-5.5){\tiny{$0$}}
-    \uput[u](9,-6.5){\tiny{$-24$}}
-    \uput[u](9,-7.5){\tiny{$0$}}
-    \uput[u](9,-8.5){\tiny{$-5$}}
-
-
-
-
-    \uput[u](10,-1.5){\tiny{$-42$}}
-    \uput[u](10,-2.5){\tiny{$0$}}
-    \uput[u](10,-3.5){\tiny{$-89$}}
-    \uput[u](10,-4.5){\tiny{$0$}}
-    \uput[u](10,-5.5){\tiny{$-71$}}
-    \uput[u](10,-6.5){\tiny{$0$}}
-    \uput[u](10,-7.5){\tiny{$-29$}}
-    \uput[u](10,-8.5){\tiny{$0$}}
-    
-    
-    \uput[l](-0.25,9){\tiny $k = 9$}
-    \uput[l](-0.25,8){\tiny $k = 8$}
-    \uput[l](-0.25,7){\tiny $k = 7$}
-    \uput[l](-0.25,6){\tiny $k = 6$}
-    \uput[l](-0.25,5){\tiny $k = 5$}
-    \uput[l](-0.25,4){\tiny $k = 4$}
-    \uput[l](-0.25,3){\tiny $k = 3$}
-    \uput[l](-0.25,2){\tiny $k = 2$}
-    \uput[l](-0.25,1){\tiny $k = 1$}
-    \uput[l](-0.25,0){\tiny $k = 0$}
-    \uput[l](-0.25,-1){\tiny $k = -1$}
-    \uput[l](-0.25,-2){\tiny $k = -2$}
-    \uput[l](-0.25,-3){\tiny $k = -3$}
-    \uput[l](-0.25,-4){\tiny $k = -4$}
-    \uput[l](-0.25,-5){\tiny $k = -5$}
-    \uput[l](-0.25,-6){\tiny $k = -6$}
-    \uput[l](-0.25,-7){\tiny $k = -7$}
-    \uput[l](-0.25,-8){\tiny $k = -8$}
-
-   \uput[u](2,15){Sequences in Skewed-Top Corridors} 
-  \end{pspicture}
-  \end{center}
   
   
   
   
-  \subsection*{Conclusions}
 
 		
   
