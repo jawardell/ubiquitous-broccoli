@@ -9,6 +9,8 @@
 \usepackage{setspace}
 \usepackage{amsthm}
 \usepackage[margin=0.5in]{geometry}
+\usepackage{pstricks, pst-all}
+\usepackage{graphicx}
 
 \linespread{1.25}
 
@@ -89,11 +91,343 @@
   \begin{defn} Let $v \in \set{N}$ represent the initial number of paths at the begining of the corridor.\\ \end{defn}
   
   \noindent The position at which the initial value $v$ is placed is an important factor. 
-  \begin{defn} Let $$
+  \begin{defn} Let $a \in \set{N}$ be the location on the horizontal axis where the paths begin. The starting point 
+  will always be $(a, 0)$.\\ \end{defn}
+
+  \noindent The corridor containing all possible path combinations is a subset on an infinite plane of integers. Consider a function 
+  whose input is two natural numbers, including zero, and whose output is a natural number or zero. 
+  \begin{defn} Let $V \mathpunct{:} \set{N}_0 \times \set{N}_0 \rightarrow \set{N}_0$ and let us refer to this as a corridor state 
+  function. The output of $V$ is $\in \set{N}_0$ and denotes the number of paths at some point in the corridor.\\ \end{defn}
+  
+  \noindent As we vary these parameters, different corridors are procduced. We've developed the following notation for characterizing 
+  corridors.
+  \begin{defn} Let $C_g$ be the corridor with gap $=g$. \\ \end{defn}
+  
+  \noindent The diagonal values in said corridors are one of the features of interest. Diagonals are characterized by their start and end points.
+  We will learn more about the characteristics of corridor diagonals and will develop more definitions later in the paper. 
+  \begin{defn} Let $D_y$, $y \in \set{Z}$, be the diagonal beginning at position $(0, y)$. \\ \end{defn}
+
+  
+  
+  \subsection*{Propagating Values}
+  \tab When initializing the skewed top corridor and its values, it is important to follow a specific algorithm. The following is an ordered description of 
+  setting up the corridor boundaries, placing initial values, and generating paths in the corridor structure.\\*
+  \tab Initialize all numbers on the plane to zero. Choose some value for $a$ and some value for $v$. For initial analysis, we choose to set static values for $
+  v$ and $a$. Assume, for now, $v = 1$ and $a = 1$.
+  Insert the initial value $v$ into position $(0, a)$, that is, place an initial value of $1$ into position $(0,1)$ on the plane.\\*
+  \tab Choose some value for $g$, which represents the size of a gap in the first corridor column. More specifically, $g$ is an indication of where the upper 
+  boundary of the corridor begins. If the corridor were placed in an array, the gap column would consist of $g$ entries: the initial value, and $g-1$ zeros above $v$.
+  On the plane, the gap begins at inclusive point $(0,2)$ and extends upward to non-inclusive coordinate $(0, g+1)$. A sentinel marker is placed at $(0, g+1)$ 
+  indicating the first establishment of the corridor's upper boundary. From now on, the upper boundary of the corridor may be referred to as the sentinel line.\\*
+  \tab Assign a value to $m = \frac{1}{r}$. For now, let $r = 2$, so that $m = \frac{1}{2}$. From the initial sentinel point at $(0, g+1)$, continue establishing 
+  such points according to the following procedure. Continually move one unit rightward, keeping track of the current column number, or, horizontal coordinate. 
+  Record the current position on the vertical axis as well. If the current column is divisible by $r$, place a sentinel marker at the $(horizontal, vertical)$ 
+  position on the grid, move up one unit on the horizontal axis, and move rightward one unit on the vertical axis. If the current column is not divisible by $r$, 
+  do not place a sentinel marker, move up zero units on the horizontal axis, and move rightward one unit on the vertical axis. Do this until the current vertical position is $n$.\\*
+  Generally, the procedure for initializing the sentinel line is as follows:
+  \begin{itemize}
+    \item[] place first sentinel point at $(0, g+1)$ 
+    \item[] while current vertical is $<$ $n$,
+    \item[] \tab increase horizontal position by one
+    \item[] \tab note current position $(horizontal, vertical)$
+    \item[] \tab\tab if current vertical position $mod$ $r = 0$
+    \item[] \tab\tab\tab place sentinel marker at current position
+    \item[] \tab\tab\tab increase vertical position by one
+  \end{itemize}
+
+  Another way to express this is $(x,y) \in \set{N}_0^2$ with $0 < y < mx+g_1$. Since $m=\frac{1}{2}$, move up one row in the plane when an even column
+  is encountered. This is continued until one reaches the $n^{th}$ column. A sentinel line is
+  established with a slope of $\frac{1}{2}$. For now, assume that every value on or above the sentinel line 
+  is equal to zero and assume that every value below the lower boundary is equal to zero. The following recursive formula can be used to
+  calculate each value in the array, where $(0, k) = $ initial state:
+	\begin{align}
+		V(x,y) = V(x-1, y-1) + V(x-1,y+1)\text{ , }
+		x \in \set{N} \text{ , } 0 < y < mx+g+1\text{ , }
+		V(0,y) =  \begin{cases}
+			v \text{, if }y=a\\
+			0 \text{, otherwise}
+		\end{cases}
+	\end{align}
+	
+  \subsection*{Observations}
+    \noindent The corridor will contain values beginning at $(0,1)$, with rows starting from $1$ extending to $g+ \frac{n+1}{2}$ inclusive
+    and columns starting from $0$ extending to $n$ inclusive.\\*\\*
+    
+    \noindent The sentinel points implicitly form a line with a slope of $m$, which we have set to $\frac{1}{2}$. The follwing statements 
+    build upon the characteristics of this line, the sentinel line.\\*\\*
+
+    \noindent From point $(0, 1)$, a line of $1$s with slope one is generated until the sentinel line is encountered at $(2g-1, 2g)$.
+    Building on the idea of where the line of ones will encounter the sentinel line, it can be proven that the line of ones will always contain $2g$ paths and will always 
+    intersect the sentinel line at $(2g-1, 2g+1)$.\\*
+    The line of ones will exist due to the nature of how the numbers in the corridor are generated, see (1). The value $V(k,x)$ accepts an upper contribution of $0$ and a
+    lower contribution from the initial value $1$. Because of this initial state, a line of $1$s will be generated because numbers outside of the corridor are $0$ and 
+    contributions from the previous $1$ will calculate more $1$s. An equation for the sentinel line is $y = \frac{1}{2}x+g+1$ and an equation for the line of ones 
+    is $y=x+1$. To see where these two lines intersect, simply set the two equations equal to each other and solve for the $x$ and $y$ coordinates of the intersection.
+    \[\frac{1}{2}x+g+1=x+1\]
+    \[x = 2g\]
+    \[y=2g+1\]
+    \[(2g, 2g+1)\]
+    
+  \subsection*{Conjecture}
+  
+  Four-element sequences exist in the corridors along with additional sequences of greater length. If $D_{-3}$ is an arithmetic sequence with degree $N$, then
+  $D_{-1}$ is a sequence with degree $N+1$ and $D_{-1}$ is a sequence with degree $N-1$. Because the values within the corridors are defined by equation $(1)$, 
+  sequences contribute to eachother linearly via addtion. This results in sequences and subsequences in the corridor that are of increasing degree 
+  as one moves in the negative direction on the $y$ axis.
+  
+  
+     \begin{center}
+    \caption{Reflected Skewed Top-Corridor}
+    \psset{unit=0.5cm,xunit=.8cm}
+    \begin{pspicture}(0,-20)(20,20)
+    
+   \psline[linestyle=solid,linecolor=blue](-0.2,-9)(-0.2,12)
+   \psline[linestyle=solid,linecolor=blue](-0.2,12)(11,0.5)
+   \psline[linestyle=solid,linecolor=orange](5.8,-9)(5.8,12)
+   \psline[linestyle=solid,linecolor=orange](11,6.2)(5.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,-9)(9.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,12)(11,10.5)
+    
+    \uput[u](0,0.5){\tiny{\color{red}$1$}}  
+    \uput[u](0,1.5){\tiny{$0$}}
+    \uput[u](0,2.5){\tiny{$0$}}
+   
+
+    \uput[u](1,0.5){\tiny{$0$}}
+    \uput[u](1,1.5){\tiny{\color{red}$1$}}
+    \uput[u](1,2.5){\tiny{$0$}}
+    \uput[u](1,3.5){\tiny{$0$}}
+
+
+
+    \uput[u](2,0.5){\tiny{\color{cyan}$1$}}
+    \uput[u](2,1.5){\tiny{$0$}}
+    \uput[u](2,2.5){\tiny{\color{red}$1$}}
+    \uput[u](2,3.5){\tiny{$0$}}
+
+
+    \uput[u](3,0.5){\tiny{$0$}}
+    \uput[u](3,1.5){\tiny{\color{cyan}$2$}}
+    \uput[u](3,2.5){\tiny{$0$}}
+    \uput[u](3,3.5){\tiny{\color{red}$1$}}
+    \uput[u](3,4.5){\tiny{$0$}}
+
+
+ 
+    \uput[u](4,0.5){\tiny{\color{orange}$2$}}
+    \uput[u](4,1.5){\tiny{$0$}}
+    \uput[u](4,2.5){\tiny{\color{cyan}$3$}}
+    \uput[u](4,3.5){\tiny{$0$}}
+    \uput[u](4,4.5){\tiny{\color{red}$1$}}
+
+
+
+    \uput[u](5,0.5){\tiny{$0$}}
+    \uput[u](5,1.5){\tiny{\color{orange}$5$}}
+    \uput[u](5,2.5){\tiny{$0$}}
+    \uput[u](5,3.5){\tiny{\color{cyan}$4$}}
+    \uput[u](5,4.5){\tiny{$0$}}
+    \uput[u](5,5.5){\tiny{\color{red}$1$}}
+
+
+
+    \uput[u](6,0.5){\tiny{\color{orange}$5$}}
+    \uput[u](6,1.5){\tiny{$0$}}
+    \uput[u](6,2.5){\tiny{\color{cyan}$9$}}
+    \uput[u](6,3.5){\tiny{$0$}}
+    \uput[u](6,4.5){\tiny{\color{red}$5$}}
+    \uput[u](6,5.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,0.5){\tiny{$0$}}
+    \uput[u](7,1.5){\tiny{\color{orange}$14$}}
+    \uput[u](7,2.5){\tiny{$0$}}
+    \uput[u](7,3.5){\tiny{\color{cyan}$14$}}
+    \uput[u](7,4.5){\tiny{$0$}}
+    \uput[u](7,5.5){\tiny{\color{red}$5$}}
+    \uput[u](7,6.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,0.5){\tiny{\color{Magenta}$14$}}
+    \uput[u](8,1.5){\tiny{$0$}}
+    \uput[u](8,2.5){\tiny{\color{orange}$28$}}
+    \uput[u](8,3.5){\tiny{$0$}}
+    \uput[u](8,4.5){\tiny{\color{cyan}$19$}}
+    \uput[u](8,5.5){\tiny{$0$}}
+    \uput[u](8,6.5){\tiny{\color{red}$5$}}
+
+
+
+    \uput[u](9,0.5){\tiny{$0$}}
+    \uput[u](9,1.5){\tiny{\color{Magenta}$42$}}
+    \uput[u](9,2.5){\tiny{$0$}}
+    \uput[u](9,3.5){\tiny{\color{orange}$47$}}
+    \uput[u](9,4.5){\tiny{$0$}}
+    \uput[u](9,5.5){\tiny{\color{cyan}$24$}}
+    \uput[u](9,6.5){\tiny{$0$}}
+    \uput[u](9,7.5){\tiny{\color{red}$5$}}
+
+
+
+
+    \uput[u](10,0.5){\tiny{\color{Magenta}$42$}}
+    \uput[u](10,1.5){\tiny{$0$}}
+    \uput[u](10,2.5){\tiny{\color{orange}$89$}}
+    \uput[u](10,3.5){\tiny{$0$}}
+    \uput[u](10,4.5){\tiny{\color{cyan}$71$}}
+    \uput[u](10,5.5){\tiny{$0$}}
+    \uput[u](10,6.5){\tiny{\color{red}$29$}}
+    \uput[u](10,7.5){\tiny{$0$}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \uput[u](0,-.5){\tiny{$0$}}
+    \uput[u](1,-.5){\tiny{\color{cyan}$0$}}
+    \uput[u](2,-.5){\tiny{$0$}}
+    \uput[u](3,-.5){\tiny{\color{orange}$0$}}
+    \uput[u](4,-.5){\tiny{$0$}}
+    \uput[u](5,-.5){\tiny{\color{Magenta}$0$}}
+    \uput[u](6,-.5){\tiny{$0$}}
+    \uput[u](7,-.5){\tiny{\color{Magenta}$0$}}
+    \uput[u](8,-.5){\tiny{$0$}}
+    \uput[u](9,-.5){\tiny{$0$}}
+    \uput[u](10,-.5){\tiny{$0$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \uput[u](0,-1.5){\color{cyan}\tiny{$-1$}}  
+    \uput[u](0,-2.5){\tiny{$0$}}
+    \uput[u](0,-3.5){\tiny{\color{orange}$0$}}
+   
+
+    \uput[u](1,-1.5){\tiny{$0$}}
+    \uput[u](1,-2.5){\tiny{\color{orange}$-1$}}
+    \uput[u](1,-3.5){\tiny{$0$}}
+    \uput[u](1,-4.5){\tiny{\color{Magenta}$-1$}}
+
+
+
+    \uput[u](2,-1.5){\color{orange}\tiny{$-1$}}
+    \uput[u](2,-2.5){\tiny{$0$}}
+    \uput[u](2,-3.5){\tiny{\color{Magenta}$-1$}}
+    \uput[u](2,-4.5){\tiny{$0$}}
+
+
+    \uput[u](3,-1.5){\tiny{$0$}}
+    \uput[u](3,-2.5){\tiny{\color{Magenta}$-2$}}
+    \uput[u](3,-3.5){\tiny{$0$}}
+    \uput[u](3,-4.5){\tiny{$-1$}}
+    \uput[u](3,-5.5){\tiny{$0$}}
+
+
+ 
+    \uput[u](4,-1.5){\tiny{\color{Magenta}$-2$}}
+    \uput[u](4,-2.5){\tiny{$0$}}
+    \uput[u](4,-3.5){\tiny{$-3$}}
+    \uput[u](4,-4.5){\tiny{$0$}}
+    \uput[u](4,-5.5){\tiny{$-1$}}
+
+
+
+    \uput[u](5,-1.5){\tiny{$0$}}
+    \uput[u](5,-2.5){\tiny{$-5$}}
+    \uput[u](5,-3.5){\tiny{$0$}}
+    \uput[u](5,-4.5){\tiny{$-4$}}
+    \uput[u](5,-5.5){\tiny{$0$}}
+    \uput[u](5,-6.5){\tiny{$-1$}}
+
+
+
+    \uput[u](6,-1.5){\color{Magenta}\tiny{$-5$}}
+    \uput[u](6,-2.5){\tiny{$0$}}
+    \uput[u](6,-3.5){\tiny{$-9$}}
+    \uput[u](6,-4.5){\tiny{$0$}}
+    \uput[u](6,-5.5){\tiny{$-5$}}
+    \uput[u](6,-6.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,-1.5){\tiny{$0$}}
+    \uput[u](7,-2.5){\tiny{$-14$}}
+    \uput[u](7,-3.5){\tiny{$0$}}
+    \uput[u](7,-4.5){\tiny{$-14$}}
+    \uput[u](7,-5.5){\tiny{$0$}}
+    \uput[u](7,-6.5){\tiny{$-5$}}
+    \uput[u](7,-7.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,-1.5){\tiny{$-14$}}
+    \uput[u](8,-2.5){\tiny{$0$}}
+    \uput[u](8,-3.5){\tiny{$-28$}}
+    \uput[u](8,-4.5){\tiny{$0$}}
+    \uput[u](8,-5.5){\tiny{$-19$}}
+    \uput[u](8,-6.5){\tiny{$0$}}
+    \uput[u](8,-7.5){\tiny{$-5$}}
+
+
+
+    \uput[u](9,-1.5){\tiny{$0$}}
+    \uput[u](9,-2.5){\tiny{$-42$}}
+    \uput[u](9,-3.5){\tiny{$0$}}
+    \uput[u](9,-4.5){\tiny{$-47$}}
+    \uput[u](9,-5.5){\tiny{$0$}}
+    \uput[u](9,-6.5){\tiny{$-24$}}
+    \uput[u](9,-7.5){\tiny{$0$}}
+    \uput[u](9,-8.5){\tiny{$-5$}}
+
+
+
+
+    \uput[u](10,-1.5){\tiny{$-42$}}
+    \uput[u](10,-2.5){\tiny{$0$}}
+    \uput[u](10,-3.5){\tiny{$-89$}}
+    \uput[u](10,-4.5){\tiny{$0$}}
+    \uput[u](10,-5.5){\tiny{$-71$}}
+    \uput[u](10,-6.5){\tiny{$0$}}
+    \uput[u](10,-7.5){\tiny{$-29$}}
+    \uput[u](10,-8.5){\tiny{$0$}}
+    
+    
+    \uput[l](-0.25,9){\tiny $k = 9$}
+    \uput[l](-0.25,8){\tiny $k = 8$}
+    \uput[l](-0.25,7){\tiny $k = 7$}
+    \uput[l](-0.25,6){\tiny $k = 6$}
+    \uput[l](-0.25,5){\tiny $k = 5$}
+    \uput[l](-0.25,4){\tiny $k = 4$}
+    \uput[l](-0.25,3){\tiny $k = 3$}
+    \uput[l](-0.25,2){\tiny $k = 2$}
+    \uput[l](-0.25,1){\tiny $k = 1$}
+    \uput[l](-0.25,0){\tiny $k = 0$}
+    \uput[l](-0.25,-1){\tiny $k = -1$}
+    \uput[l](-0.25,-2){\tiny $k = -2$}
+    \uput[l](-0.25,-3){\tiny $k = -3$}
+    \uput[l](-0.25,-4){\tiny $k = -4$}
+    \uput[l](-0.25,-5){\tiny $k = -5$}
+    \uput[l](-0.25,-6){\tiny $k = -6$}
+    \uput[l](-0.25,-7){\tiny $k = -7$}
+    \uput[l](-0.25,-8){\tiny $k = -8$}
+
+   \uput[u](2,15){Sequences in Skewed-Top Corridors} 
+  \end{pspicture}
+  \end{center}
+  
+  
+  
+  
+  \subsection*{Conclusions}
+
+		
   
   
 
-  
+
+
 \end{document}
 
 
