@@ -9,6 +9,7 @@
 \usepackage{setspace}
 \usepackage{amsthm}
 \usepackage[margin=0.5in]{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage{pstricks, pst-all}
 \usepackage{graphicx}
 
@@ -191,7 +192,13 @@
 \begin{align}
   \tab\tab\tab\tab\tab\tab k + 1^* \tab\tab\tab \text{ *while } k \leq 2g
  \end{align}
-    
+   
+  \subsection*{Reflecting the Structure}
+  \tab Mathematics often rewards one when attempts at creating symmetry are applied. We reflected the corridor structure 
+  and noticed new results. 
+  
+  
+  
   \subsection*{Conjecture}
   
   \tab Four-element arithmetic sequences exist in the corridors along with additional sequences of greater length. If $D_{-3}$ is an 
@@ -203,17 +210,262 @@
   \tab $2g$-element sequences begin at coordinate $(0,2y-1)$, end at coordinate $(2g-1, 2g-|y|)$, and have degree $N = -\frac{1}{2}(y - 1)$. 
   For $(2y-1) < 1$, the first instance four-element subsequences begins at coordinate $(2g, 2g-y)$, ends at coordinate $(2g + 3, 2g-y + 3)$, and is of degree
   $N = -\frac{1}{2}(y + 1)$.\\
-  \tab Subsequence $\sigma_{\hat{y}}^{\hat{x}}$, where ${\hat{y} \in \set{Z}}$ and ${\hat{x} \in \set{N}_0}$, denotes the $\hat{x}^{th}$ 
-  subsequence of diagonal $D_{\hat{y}}$. Four-element subsequences of $D_{\hat{y}}$ are classified as all $\sigma_{\hat{y}}^{\hat{x}}$ where 
-  $\hat{x} > 0$. For all $4$-element subsequences after $\hat{x} = 1$, the beginning coordinate is $(2g + 3\hat{x}, 2g+3\hat{x})$ and 
-  the ending coordinate is $(2g + 3\hat{x}+3, 2g+3\hat{x}+3)$. 
-  $\sigma_{\hat{y}}^{\hat{x}}$ with $\hat{x} > 0$ have a degree of $N = -\frac{1}{2}(\hat{y} - 1) - \hat{x}$.
-  
+  \tab Subsequence $\sigma_{\beta}^{\alpha}$, where ${\beta \in \set{Z}}$ and ${\alpha \in \set{N}_0}$, denotes the $\alpha^{th}$ 
+  subsequence of diagonal $D_{\beta}$. Four-element subsequences of $D_{\beta}$ are classified as all $\sigma_{\beta}^{\alpha}$ where 
+  $\alpha > 0$. For all $4$-element subsequences after $\alpha = 1$, the beginning coordinate is $(2g + 3\alpha, 2g+3\alpha)$ and 
+  the ending coordinate is $(2g + 3\alpha+3, 2g+3\alpha+3)$. 
+  $\sigma_{\beta}^{\alpha}$ with $\alpha > 0$ have a degree of $N = -\frac{1}{2}(\beta - 1) - \alpha$.\\
+  \tab Upon closer inspection, one will notice that these four element subsequences exhibit an overlapping behavior. The sequences are completed upon
+  reflecting the corridor across the x-axis. We can draw triangular boundaries around these overlapping subsequences. See the figure below.
+    \begin{figure}
+    \caption{Bounded Sequences in Reflected Corridors}
+   \begin{center}
+    \psset{unit=0.5cm,xunit=.8cm}
+    \begin{pspicture}(0,-20)(20,20)
+    
+   \psline[linestyle=solid,linecolor=blue](-0.2,-9)(-0.2,12)
+   \psline[linestyle=solid,linecolor=blue](-0.2,12)(11,0.5)
+   \psline[linestyle=solid,linecolor=orange](5.8,-9)(5.8,12)
+   \psline[linestyle=solid,linecolor=orange](11,6.2)(5.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,-9)(9.8,12)
+   \psline[linestyle=solid,linecolor=green](9.8,12)(11,10.5)
+    
+    \uput[u](0,0.5){\tiny{\color{red}$1$}}  
+    \uput[u](0,1.5){\tiny{$0$}}
+    \uput[u](0,2.5){\tiny{$0$}}
+   
+
+    \uput[u](1,0.5){\tiny{$0$}}
+    \uput[u](1,1.5){\tiny{\color{red}$1$}}
+    \uput[u](1,2.5){\tiny{$0$}}
+    \uput[u](1,3.5){\tiny{$0$}}
+
+
+
+    \uput[u](2,0.5){\tiny{\color{cyan}$1$}}
+    \uput[u](2,1.5){\tiny{$0$}}
+    \uput[u](2,2.5){\tiny{\color{red}$1$}}
+    \uput[u](2,3.5){\tiny{$0$}}
+
+
+    \uput[u](3,0.5){\tiny{$0$}}
+    \uput[u](3,1.5){\tiny{\color{cyan}$2$}}
+    \uput[u](3,2.5){\tiny{$0$}}
+    \uput[u](3,3.5){\tiny{\color{red}$1$}}
+    \uput[u](3,4.5){\tiny{$0$}}
 
 
  
+    \uput[u](4,0.5){\tiny{\color{orange}$2$}}
+    \uput[u](4,1.5){\tiny{$0$}}
+    \uput[u](4,2.5){\tiny{\color{cyan}$3$}}
+    \uput[u](4,3.5){\tiny{$0$}}
+    \uput[u](4,4.5){\tiny{\color{red}$1$}}
+
+
+
+    \uput[u](5,0.5){\tiny{$0$}}
+    \uput[u](5,1.5){\tiny{\color{orange}$5$}}
+    \uput[u](5,2.5){\tiny{$0$}}
+    \uput[u](5,3.5){\tiny{\color{cyan}$4$}}
+    \uput[u](5,4.5){\tiny{$0$}}
+    \uput[u](5,5.5){\tiny{\color{red}$1$}}
+
+
+
+    \uput[u](6,0.5){\tiny{\color{orange}$5$}}
+    \uput[u](6,1.5){\tiny{$0$}}
+    \uput[u](6,2.5){\tiny{\color{cyan}$9$}}
+    \uput[u](6,3.5){\tiny{$0$}}
+    \uput[u](6,4.5){\tiny{\color{red}$5$}}
+    \uput[u](6,5.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,0.5){\tiny{$0$}}
+    \uput[u](7,1.5){\tiny{\color{orange}$14$}}
+    \uput[u](7,2.5){\tiny{$0$}}
+    \uput[u](7,3.5){\tiny{\color{cyan}$14$}}
+    \uput[u](7,4.5){\tiny{$0$}}
+    \uput[u](7,5.5){\tiny{\color{red}$5$}}
+    \uput[u](7,6.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,0.5){\tiny{\color{Magenta}$14$}}
+    \uput[u](8,1.5){\tiny{$0$}}
+    \uput[u](8,2.5){\tiny{\color{orange}$28$}}
+    \uput[u](8,3.5){\tiny{$0$}}
+    \uput[u](8,4.5){\tiny{\color{cyan}$19$}}
+    \uput[u](8,5.5){\tiny{$0$}}
+    \uput[u](8,6.5){\tiny{\color{red}$5$}}
+
+
+
+    \uput[u](9,0.5){\tiny{$0$}}
+    \uput[u](9,1.5){\tiny{\color{Magenta}$42$}}
+    \uput[u](9,2.5){\tiny{$0$}}
+    \uput[u](9,3.5){\tiny{\color{orange}$47$}}
+    \uput[u](9,4.5){\tiny{$0$}}
+    \uput[u](9,5.5){\tiny{\color{cyan}$24$}}
+    \uput[u](9,6.5){\tiny{$0$}}
+    \uput[u](9,7.5){\tiny{\color{red}$5$}}
+
+
+
+
+    \uput[u](10,0.5){\tiny{\color{Magenta}$42$}}
+    \uput[u](10,1.5){\tiny{$0$}}
+    \uput[u](10,2.5){\tiny{\color{orange}$89$}}
+    \uput[u](10,3.5){\tiny{$0$}}
+    \uput[u](10,4.5){\tiny{\color{cyan}$71$}}
+    \uput[u](10,5.5){\tiny{$0$}}
+    \uput[u](10,6.5){\tiny{\color{red}$29$}}
+    \uput[u](10,7.5){\tiny{$0$}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \uput[u](0,-.5){\tiny{$0$}}
+    \uput[u](1,-.5){\tiny{\color{cyan}$0$}}
+    \uput[u](2,-.5){\tiny{$0$}}
+    \uput[u](3,-.5){\tiny{\color{orange}$0$}}
+    \uput[u](4,-.5){\tiny{$0$}}
+    \uput[u](5,-.5){\tiny{\color{Magenta}$0$}}
+    \uput[u](6,-.5){\tiny{$0$}}
+    \uput[u](7,-.5){\tiny{\color{Magenta}$0$}}
+    \uput[u](8,-.5){\tiny{$0$}}
+    \uput[u](9,-.5){\tiny{$0$}}
+    \uput[u](10,-.5){\tiny{$0$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \uput[u](0,-1.5){\color{cyan}\tiny{$-1$}}  
+    \uput[u](0,-2.5){\tiny{$0$}}
+    \uput[u](0,-3.5){\tiny{\color{orange}$0$}}
+   
+
+    \uput[u](1,-1.5){\tiny{$0$}}
+    \uput[u](1,-2.5){\tiny{\color{orange}$-1$}}
+    \uput[u](1,-3.5){\tiny{$0$}}
+    \uput[u](1,-4.5){\tiny{\color{Magenta}$-1$}}
+
+
+
+    \uput[u](2,-1.5){\color{orange}\tiny{$-1$}}
+    \uput[u](2,-2.5){\tiny{$0$}}
+    \uput[u](2,-3.5){\tiny{\color{Magenta}$-1$}}
+    \uput[u](2,-4.5){\tiny{$0$}}
+
+
+    \uput[u](3,-1.5){\tiny{$0$}}
+    \uput[u](3,-2.5){\tiny{\color{Magenta}$-2$}}
+    \uput[u](3,-3.5){\tiny{$0$}}
+    \uput[u](3,-4.5){\tiny{$-1$}}
+    \uput[u](3,-5.5){\tiny{$0$}}
+
+
+ 
+    \uput[u](4,-1.5){\tiny{\color{Magenta}$-2$}}
+    \uput[u](4,-2.5){\tiny{$0$}}
+    \uput[u](4,-3.5){\tiny{$-3$}}
+    \uput[u](4,-4.5){\tiny{$0$}}
+    \uput[u](4,-5.5){\tiny{$-1$}}
+
+
+
+    \uput[u](5,-1.5){\tiny{$0$}}
+    \uput[u](5,-2.5){\tiny{$-5$}}
+    \uput[u](5,-3.5){\tiny{$0$}}
+    \uput[u](5,-4.5){\tiny{$-4$}}
+    \uput[u](5,-5.5){\tiny{$0$}}
+    \uput[u](5,-6.5){\tiny{$-1$}}
+
+
+
+    \uput[u](6,-1.5){\color{Magenta}\tiny{$-5$}}
+    \uput[u](6,-2.5){\tiny{$0$}}
+    \uput[u](6,-3.5){\tiny{$-9$}}
+    \uput[u](6,-4.5){\tiny{$0$}}
+    \uput[u](6,-5.5){\tiny{$-5$}}
+    \uput[u](6,-6.5){\tiny{$0$}}
+
+
+    
+    \uput[u](7,-1.5){\tiny{$0$}}
+    \uput[u](7,-2.5){\tiny{$-14$}}
+    \uput[u](7,-3.5){\tiny{$0$}}
+    \uput[u](7,-4.5){\tiny{$-14$}}
+    \uput[u](7,-5.5){\tiny{$0$}}
+    \uput[u](7,-6.5){\tiny{$-5$}}
+    \uput[u](7,-7.5){\tiny{$0$}}
+
+
+
+
+    \uput[u](8,-1.5){\tiny{$-14$}}
+    \uput[u](8,-2.5){\tiny{$0$}}
+    \uput[u](8,-3.5){\tiny{$-28$}}
+    \uput[u](8,-4.5){\tiny{$0$}}
+    \uput[u](8,-5.5){\tiny{$-19$}}
+    \uput[u](8,-6.5){\tiny{$0$}}
+    \uput[u](8,-7.5){\tiny{$-5$}}
+
+
+
+    \uput[u](9,-1.5){\tiny{$0$}}
+    \uput[u](9,-2.5){\tiny{$-42$}}
+    \uput[u](9,-3.5){\tiny{$0$}}
+    \uput[u](9,-4.5){\tiny{$-47$}}
+    \uput[u](9,-5.5){\tiny{$0$}}
+    \uput[u](9,-6.5){\tiny{$-24$}}
+    \uput[u](9,-7.5){\tiny{$0$}}
+    \uput[u](9,-8.5){\tiny{$-5$}}
+
+
+
+
+    \uput[u](10,-1.5){\tiny{$-42$}}
+    \uput[u](10,-2.5){\tiny{$0$}}
+    \uput[u](10,-3.5){\tiny{$-89$}}
+    \uput[u](10,-4.5){\tiny{$0$}}
+    \uput[u](10,-5.5){\tiny{$-71$}}
+    \uput[u](10,-6.5){\tiny{$0$}}
+    \uput[u](10,-7.5){\tiny{$-29$}}
+    \uput[u](10,-8.5){\tiny{$0$}}
+    
+    
+    \uput[l](-0.25,9){\tiny $k = 9$}
+    \uput[l](-0.25,8){\tiny $k = 8$}
+    \uput[l](-0.25,7){\tiny $k = 7$}
+    \uput[l](-0.25,6){\tiny $k = 6$}
+    \uput[l](-0.25,5){\tiny $k = 5$}
+    \uput[l](-0.25,4){\tiny $k = 4$}
+    \uput[l](-0.25,3){\tiny $k = 3$}
+    \uput[l](-0.25,2){\tiny $k = 2$}
+    \uput[l](-0.25,1){\tiny $k = 1$}
+    \uput[l](-0.25,0){\tiny $k = 0$}
+    \uput[l](-0.25,-1){\tiny $k = -1$}
+    \uput[l](-0.25,-2){\tiny $k = -2$}
+    \uput[l](-0.25,-3){\tiny $k = -3$}
+    \uput[l](-0.25,-4){\tiny $k = -4$}
+    \uput[l](-0.25,-5){\tiny $k = -5$}
+    \uput[l](-0.25,-6){\tiny $k = -6$}
+    \uput[l](-0.25,-7){\tiny $k = -7$}
+    \uput[l](-0.25,-8){\tiny $k = -8$}
+  \end{pspicture}
+  \end{center}
   
-  
+  \end{figure}
+
+  \tab We need to expand our subsequences, $\sigma_{\beta}^{\alpha}$, to encompass sequences which are longer than four and 
+  exist at different coordinates. Let $\hat{s} \in \set{N}$. 
+  The $\sigma_{\beta}^{\alpha}$ sequence of order $\hat{s}$ is in the $\hat{s}^{th}$ layer of the corridor. It is part of a diagonal which begins at $(0, \alpha)$ and is the $\beta^{th}$
+  section of the $\alpha$ diagonal. The introduction of another variable may seem convoluted but allowing the sequences to have three parameters helps us 
+  to classify them and analyze their degree, $N$. The order of the sequence, $\hat{s}$, is calculated from the $\alpha$ value. $\hat{s} = -\frac{1}{2}(\alpha-1)$.\\\\
+  $\sigma_{\beta}^{\alpha}$ where $\beta = 0$ always start at coordinate $(0, \alpha)$ and end at coordinate $(2g + \hat{s}, 2g + \hat{s})$.\\\\
+  $\sigma_{\beta}^{\alpha}$ where $\beta = 1$ always start at coordinate $(2g, 2g-(2\hat{s}-1))$ and end at coordinate $(2g + 3+(\hat{s}-1), 2g - (2\hat{s}-1))$.
   
   
 
