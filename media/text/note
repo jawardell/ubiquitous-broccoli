@@ -1,3 +1,8 @@
+update: june15: only use xelatex and \usepackage{pstricks, pst-all}
+xelatex pstricks_file.tex
+`output written on pstricks_file.tex`
+okular pstricks_file.tex
+
 update june 8th
 darn pstricks what are u doing
 pstricks is not working
